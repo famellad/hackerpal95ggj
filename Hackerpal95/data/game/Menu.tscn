@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://data/game/Menu.gd" type="Script" id=1]
 [ext_resource path="res://data/game/fondo.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://data/game/icono.png" type="Texture" id=5]
 [ext_resource path="res://data/game/Icono.gd" type="Script" id=6]
 [ext_resource path="res://data/game/hackerexe/Hackerexe.tscn" type="PackedScene" id=7]
+[ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -32,7 +33,7 @@ use_filter = false
 font_data = SubResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Node" index="0"]
+[node name="Menu" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -51,23 +52,23 @@ _sections_unfolded = [ "Offset", "Transform" ]
 position = Vector2( 0, 720 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="SpriteBarra" type="Sprite" parent="Centerer" index="2"]
+[node name="SpriteBarra" type="Sprite" parent="Centerer/Barra" index="0"]
 
-position = Vector2( 0, 736 )
+position = Vector2( 0, 16 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Hora" type="Label" parent="Centerer" index="3"]
+[node name="Hora" type="Label" parent="Centerer/Barra" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 959.0
-margin_top = 742.0
+margin_top = 22.0
 margin_right = 1017.0
-margin_bottom = 762.0
+margin_bottom = 42.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
@@ -84,7 +85,7 @@ max_lines_visible = -1
 script = ExtResource( 4 )
 _sections_unfolded = [ "Grow Direction", "custom_colors" ]
 
-[node name="Icono" type="Button" parent="Centerer" index="4"]
+[node name="Icono" type="Button" parent="Centerer" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -108,16 +109,16 @@ flat = true
 align = 1
 script = ExtResource( 6 )
 
-[node name="Nombre" type="Label" parent="Centerer" index="5"]
+[node name="Nombre" type="Label" parent="Centerer/Icono" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 41.0
-margin_top = 132.0
-margin_right = 128.0
-margin_bottom = 152.0
+margin_left = -4.0
+margin_top = 79.0
+margin_right = 83.0
+margin_bottom = 99.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -132,10 +133,14 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Hackerexe" parent="Centerer" index="6" instance=ExtResource( 7 )]
+[node name="Hackerexe" parent="Centerer" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 54.1816, 118.671 )
 _sections_unfolded = [ "Visibility" ]
+
+[node name="HackerHP" parent="Centerer" index="4" instance=ExtResource( 8 )]
+
+position = Vector2( 631.061, 35.1617 )
 
 [connection signal="button_up" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_up"]
 
