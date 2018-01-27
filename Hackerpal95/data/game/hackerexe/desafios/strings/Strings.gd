@@ -10,22 +10,27 @@ var start_time
 # Variable para almacenar la palabra que se Tomará al azar de la lista
 var word
 # Nodo donde se va  desplegar el texto que se debe transcribir
-onready var type_text = $Panel/CenterContainer/VBoxContainer/Typetext
+onready var type_text = $Panel/VBoxContainer/Typetext
+onready var msg_text = $Panel/VBoxContainer/Message
 
-onready var barra_carga = $Panel/CenterContainer/VBoxContainer/BarraCarga
+onready var barra_carga = $Panel/VBoxContainer/Container/BarraCarga
 # Solo para debug este array sirve para luego selecccionar al azar una dificultad
-var diffarray = ['easy','medium','hard','insane']
+#var diffarray = ['easy','medium','hard','insane']
 
 # Setter para establecer la dificultad del desafio
-var diff = 'easy' setget set_diff
-func set_diff(newvalue):
+var diff = 'easy' setget set_difficulty
+func set_difficulty(newvalue):
     diff=newvalue
+    
+var hackerexe setget set_hackerexe
 
+func set_hackerexe(object):
+  hackerexe = object
 
 # Funcion para obtener un array de palabras dependiendo de la dificultad
-func get_words(diff):
+func get_words(string):
   var file = File.new()
-  file.open("res://data/game/hackerexe/desafios/strings/"+diff+".txt", File.READ)
+  file.open("res://data/game/hackerexe/desafios/strings/"+string+".txt", File.READ)
   var lines = []
   while not file.eof_reached():
     lines.append(file.get_line())
@@ -35,8 +40,19 @@ func get_words(diff):
 func rand_elem(array):
   var elem = array[randi() % array.size()]
   return elem
+  
+func victory():
+    state_desafio = State.Transmitted # Cambiamos el estado del desafio
+    msg_text.text = 'TRANSMITTED!!' # Ya fue resuelto el desafio
+    # hackerexe.last_checked()
 
-func _ready():
+func fail():
+    state_desafio = State.Error # Cambiamos al estado error
+    type_text.text = 'Error!!!'  # Cambiamos el label a ERROR
+    yield(get_tree().create_timer(1.0), "timeout")
+    reset()
+    
+func reset():
   randomize()
   # Al inicio establecemos el estado inicial en Infecting
   state_desafio = State.Infecting
@@ -45,7 +61,7 @@ func _ready():
   # se establezca la dificultad
   
   # se deberia comentar esta linea  para propositos de juego final
-  set_diff(rand_elem(diffarray))
+  # set_difficulty(rand_elem(diffarray))
   
   # Asignamos una palabra al azar dependiendo de la dificultad
   word = rand_elem(get_words(diff)).to_upper()
@@ -68,6 +84,10 @@ func _ready():
   # Set la barra de carga
   barra_carga.set_level(1)
   
+func _ready():
+  reset()
+
+  
 func _input(event):
   if (event is InputEventKey and !event.echo and event.pressed and state_desafio == State.Infecting):
     # Si el evento es una Entrada de Teclad y si acaba de presionar y si olo justo presiona y el estado del desafio es Infecting
@@ -89,18 +109,11 @@ func _input(event):
         
         if(word ==''): 
         # ya para cuando introduzca todas las letras correctas y el string esté vacio
+          victory()
 
-          state_desafio = State.Transmitted # Cambiamos el estado del desafio
-          type_text.text = 'TRANSMITTED!!' # Ya fue resuelto el desafio
-          #yield(get_tree().create_timer(1.0), "timeout") # Esperamos un segundo
-          #queue_free() # Liberamos la instancia
-          # Aquí está ya el desafio superado
       else:
         # Si la primera letra de la palabra NO es la tecla que presionamos
-        
-        state_desafio = State.Error # Cambiamos al estado error
-        type_text.text = 'Error!!!'  # Cambiamos el label a ERROR
-        
+        fail()
         #yield(get_tree().create_timer(1.0), "timeout") # Esperamos un segundo
         #queue_free() # Liberamos la instancia 
         
@@ -115,8 +128,7 @@ func _process(delta):
       
       if time <= 0.0:
         # Ahora si se acaba el tiempo estipulado para el desafio
-        type_text.text = 'Error!!!'
-        state_desafio == State.Error
+        fail()
         #yield(get_tree().create_timer(1.0), "timeout")
         ## Aqui se deberia emitir una señal para el "NODO, computador" que es hackeado
         ## para que cambie su estado de virus transmitido
