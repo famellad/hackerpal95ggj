@@ -44,12 +44,14 @@ func rand_elem(array):
 func victory():
     state_desafio = State.Transmitted # Cambiamos el estado del desafio
     msg_text.text = 'TRANSMITTED!!' # Ya fue resuelto el desafio
+    yield(get_tree().create_timer(0.5), "timeout")
+    queue_free()
     # hackerexe.last_checked()
 
 func fail():
     state_desafio = State.Error # Cambiamos al estado error
     type_text.text = 'Error!!!'  # Cambiamos el label a ERROR
-    yield(get_tree().create_timer(1.0), "timeout")
+    yield(get_tree().create_timer(0.5), "timeout")
     reset()
     
 func reset():
