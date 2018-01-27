@@ -16,4 +16,5 @@ func _ready():
 
 
 func _on_Icono_button_up():
-	get_parent().get_node("Hackerexe").visible = true
+	get_parent().get_node("Game").show()
+
