@@ -6,7 +6,7 @@ extends Node
 #var hackerexe = load("res://data/game/hackerexe/Hackerexe.tscn")
 
 func _ready():
-	$Hackerexe.hide()
+	$Centerer/Hackerexe.hide()
 	pass
 	
 
