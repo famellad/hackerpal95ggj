@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://data/game/hackerexe/PC.gd" type="Script" id=1]
 [ext_resource path="res://data/game/hackerexe/icons/pc1.png" type="Texture" id=2]
 [ext_resource path="res://data/game/hackerexe/NodeLabel.gd" type="Script" id=3]
+[ext_resource path="res://data/game/hackerexe/ChallengeButton.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -49,5 +50,31 @@ lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 3 )
 _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+
+[node name="ChallengeButton" type="Button" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+flat = true
+align = 1
+script = ExtResource( 4 )
+_sections_unfolded = [ "Margin" ]
+
+[connection signal="button_up" from="ChallengeButton" to="ChallengeButton" method="_on_ChallengeButton_button_up"]
 
 

@@ -5,11 +5,13 @@ extends Node2D
 # var b = "textvar"
 
 var infect_c = 2
-var infect_t = 0.5
+var infect_t = 0.25
 
 var infected = false
 var coords = Vector2(0, 0)
 var hackerexe
+
+var diff = "hard"
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -19,13 +21,14 @@ func _ready():
 
 func infect():
 	infected = true
+	$NodeLabel.text = "xx.xx.xx.xx"
 	$Sprite.frame = 1
 	set_process(true)
 
 func _process(delta):
 	infect_t -= delta
 	if infect_t < 0:
-		infect_t = 0.5
+		infect_t = 0.25
 		$Sprite.frame = infect_c
 		infect_c += 1
 		

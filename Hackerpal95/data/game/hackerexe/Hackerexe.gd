@@ -17,6 +17,7 @@ var servi = preload("res://data/game/hackerexe/Servidor.tscn")
 
 var masher = preload("res://data/game/hackerexe/desafios/masher/Masher.tscn")
 var lights_out = preload("res://data/game/hackerexe/desafios/lights_out/Light_Panel.tscn")
+var strings = preload("res://data/game/hackerexe/desafios/strings/Strings.tscn")
 
 var desktop
 
@@ -82,7 +83,11 @@ func open_challenge(diff):
 		desktop.add_child(c)
 	elif rand == 2:
 		# Strings
-		pass
+		c = strings.instance()
+		c.set_hackerexe(self)
+		c.set_diff(diff)
+		desktop.add_child(c)
+		
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

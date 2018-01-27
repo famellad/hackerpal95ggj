@@ -5,6 +5,7 @@ extends Button
 # var b = "textvar"
 
 var selected_texture = preload("res://data/game/iconoseleccionado.png")
+var normal_texture = preload("res://data/game/icono.png")
 var hackerexe = preload("res://data/game/hackerexe/Hackerexe.tscn")
 
 func _ready():
@@ -17,12 +18,16 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
+func _on_Icono_button_down():
+	icon = selected_texture
 
 func _on_Icono_button_up():
 	var h = hackerexe.instance()
 	h.translate(Vector2(154, 113))
 	h.desktop = get_parent().get_parent()
 	
+	self.disabled = true
+	
 	get_parent().add_child(h)
-	icon = selected_texture
+	icon = normal_texture
 

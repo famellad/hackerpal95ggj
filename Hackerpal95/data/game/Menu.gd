@@ -13,7 +13,8 @@ func _ready():
 	
 	Input.set_custom_mouse_cursor( cursor )
 	
-	
+func enable_button():
+	$Centerer/Icono.disabled = false
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.

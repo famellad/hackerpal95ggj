@@ -7,10 +7,10 @@ path="res://.import/iconoseleccionado.png-1d0e99871ad44102cfaf5a09514a5e4f.stex"
 [deps]
 
 source_file="res://data/game/iconoseleccionado.png"
-source_md5="8e7c4aa791ec0ab52d2f8a18322f47b6"
+source_md5="f9d9c184b50e58be7eaf196ae27f03e6"
 
 dest_files=[ "res://.import/iconoseleccionado.png-1d0e99871ad44102cfaf5a09514a5e4f.stex" ]
-dest_md5="2cb905cc06af6d7543ed10d5661aeffb"
+dest_md5="8ae4a0819787fc56ba26ab8700cbefd6"
 
 [params]
 

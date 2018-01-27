@@ -17,4 +17,4 @@ func _ready():
 
 func _on_ChallengeButton_button_up():
 	get_parent().hackerexe.last_coord = get_parent().coords
-	get_parent().hackerexe.open_challenge("easy")
+	get_parent().hackerexe.open_challenge(get_parent().diff)

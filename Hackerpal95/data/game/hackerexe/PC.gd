@@ -8,6 +8,8 @@ var infected = false
 var coords = Vector2(0, 0)
 var hackerexe
 
+var diff = "medium"
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -15,6 +17,7 @@ func _ready():
 
 func infect():
 	infected = true
+	$NodeLabel.text = "xx.xx.xx.xx"
 	$Sprite.frame = 1
 
 #func _process(delta):
