@@ -8,7 +8,8 @@ var win = false
 var moves = []
 var map = {3:"a cellphone", 4:"a PC", 6:"a server", 8:"BASA"}
 var difficulty = "easy"
-
+var barracarga = preload("res://data/game/barra_carga/BarraCarga.tscn")
+var barra
 var hackerexe
 
 func print_grid(grid):
@@ -48,9 +49,9 @@ func set_diff(diff):
 	elif diff == "medium":
 		size = 4
 	elif diff == "hard":
-		size = 6
+		size = 5
 	elif diff == "insane":
-		size = 8
+		size = 6
 	create_lights()
 	light_up()
 
@@ -98,7 +99,6 @@ func light_up():
 		button.connect("pressed", self, "light", [i, false]) 
 
 func light(n, action):
-	var barra = get_node("BarraCarga")
 	var button = get_node("Button"+str(n))
 	# print(n, " ", moves.find(n))
 	
@@ -142,7 +142,8 @@ func light(n, action):
 		# grid.append(line)
 	# print_grid(grid)
 
-	#barra.set_level(float(count)/pow(size, 2))
+	if not action:
+		barra.set_level(float(count)/pow(size, 2))
 	# print(count)
 
 	if temp and not action:
@@ -157,6 +158,10 @@ func _ready():
 	#create_lights()
 	
 	#light_up()
+	print("hola")
+	barra = barracarga.instance()
+	barra.name = "BarraCarga"
+	add_child(barra)
 	pass
 	#for i in range(1, pow(size, 2)+1):
 	#	var button = get_node("Button"+str(i))
