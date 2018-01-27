@@ -3,7 +3,7 @@
 [ext_resource path="res://data/game/hackerexe/Servidor.gd" type="Script" id=1]
 [ext_resource path="res://data/game/hackerexe/icons/servidor.png" type="Texture" id=2]
 
-[node name="Servidor" type="Node2D" index="0"]
+[node name="Servidor" type="Node2D"]
 
 script = ExtResource( 1 )
 

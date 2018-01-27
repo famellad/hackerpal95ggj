@@ -9,11 +9,15 @@ var infect_t = 0.5
 
 var infected = false
 
+var hackerexe
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	infect()
 	pass
+	
+func set_hackerexe(object):
+	hackerexe = object
 
 func infect():
 	infected = true

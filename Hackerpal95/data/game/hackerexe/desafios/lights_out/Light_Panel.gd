@@ -1,22 +1,25 @@
 extends Panel
 
-var size = 3
+var size = 9
 var pixel = 90
 var move_x = 0
 var move_y = 22
 var win = false
 var moves = []
-var map = {3:"un computador", 5:"un cybercafe", 7:"un servidor", 9:"la NASA"}
+var map = {3:"un celular", 5:"un computador", 7:"un servidor", 9:"la NASA"}
 var difficulty = "easy"
 var style = StyleBoxFlat.new()
 
-signal succesful_hack
+var hackerexe
 
 func print_grid(grid):
 	var temp = ""
 	for line in grid:
 		temp += str(line)+"\n"
 	print(temp)
+
+func set_hackerexe(obj):
+	hackerexe = obj
 
 func leave():
 	var popup = PopupPanel.new()
@@ -35,7 +38,7 @@ func leave():
 	text.align = 1
 	if win:
 		text.text = "Has hackeado " + map[size]
-		emit_signal("succesful_hack", difficulty, "lights_out")
+		hackerexe.last_hacked()
 	else:
 		text.text = "Te han atrapado"
 
