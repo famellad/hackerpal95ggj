@@ -5,6 +5,8 @@ extends Node2D
 # var b = "textvar"
 
 var infected = false
+var coords = Vector2(0, 0)
+var hackerexe
 
 func _ready():
 	# Called every time the node is added to the scene.

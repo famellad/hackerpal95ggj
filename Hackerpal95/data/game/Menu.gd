@@ -13,6 +13,8 @@ func _ready():
 	var centro_y = (screen.y - 768) / 2
 	$Centerer.translate(Vector2(centro_x, centro_y))
 	
+	$Centerer/Hackerexe.desktop = self
+	
 	Input.set_custom_mouse_cursor( cursor )
 	
 	

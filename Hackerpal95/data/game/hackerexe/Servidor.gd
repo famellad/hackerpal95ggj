@@ -8,16 +8,14 @@ var infect_c = 2
 var infect_t = 0.5
 
 var infected = false
-
+var coords = Vector2(0, 0)
 var hackerexe
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	set_process(false)
 	pass
-	
-func set_hackerexe(object):
-	hackerexe = object
 
 func infect():
 	infected = true
