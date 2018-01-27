@@ -2,12 +2,13 @@
 
 [ext_resource path="res://data/game/hackerexe/ventana.png" type="Texture" id=1]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 editor/display_folded = true
 
 [node name="Ventana" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.782965, 1.0932 )
 texture = ExtResource( 1 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]

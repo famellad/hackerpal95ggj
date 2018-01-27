@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex"
+path="res://.import/servidor.png-631f0476de77207b5ca62a6b3f74a382.stex"
 
 [deps]
 
-source_file="res://data/game/hackerexe/icons/pc1.png"
-source_md5="146b7cc43dac207c449e6691a7b635a9"
+source_file="res://data/game/hackerexe/icons/servidor.png"
+source_md5="9f58bec31064db68f4617c464fbf1f98"
 
-dest_files=[ "res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex" ]
-dest_md5="996fdc54458b61a5c03dba3d41b03975"
+dest_files=[ "res://.import/servidor.png-631f0476de77207b5ca62a6b3f74a382.stex" ]
+dest_md5="b3b8a007ad790b6aea98f6316bbe7f3b"
 
 [params]
 
