@@ -1,13 +1,14 @@
 extends Panel
 
-var size = 7
-var pixel = 60
+var size = 3
+var pixel = 90
 var move_x = 0
-var move_y = 0
+var move_y = 22
 var win = false
 var moves = []
 var map = {3:"un computador", 5:"un cybercafe", 7:"un servidor", 9:"la NASA"}
 var style = StyleBoxFlat.new()
+
 func print_grid(grid):
 	var temp = ""
 	for line in grid:
@@ -49,6 +50,10 @@ func create_lights():
 	var panel = get_node(".")
 	panel.margin_right = size*pixel + move_x
 	panel.margin_bottom = size*pixel + move_y
+	
+	# var barra = get_node("BarraCarga")
+	# barra.scale.x = size*pixel/240.0
+	
 	for i in range(1, size+1):
 		for j in range(size):
 			var button = TextureButton.new()
@@ -59,8 +64,8 @@ func create_lights():
 			button.margin_bottom = pixel*(j+1) - 2 + move_y
 			button.toggle_mode = true
 			button.pressed = true
-			button.texture_normal = load("res://data/game/hackerexe/desafios/lights_out/candadocerrado.png")
-			button.texture_pressed = load("res://data/game/hackerexe/desafios/lights_out/candadoabierto.png") 
+			button.texture_normal = load("res://data/game/Candado2/candado2cerrado.png")
+			button.texture_pressed = load("res://data/game/Candado2/candado2abierto.png") 
 			add_child(button)
 
 func light_up():
@@ -69,6 +74,7 @@ func light_up():
 		light(randi()%int(pow(size, 2)) + 1, true)
 
 func light(n, action):
+	var barra = get_node("BarraCarga")
 	var button = get_node("Button"+str(n))
 	#print(n)
 	if n in moves:
@@ -76,7 +82,7 @@ func light(n, action):
 	else:
 		moves.append(n)
 	moves.sort()
-	print(moves)
+	# print(moves)
 	if action:
 		button.pressed = not button.pressed
 	if n%size != 0:
@@ -97,6 +103,7 @@ func light(n, action):
 		button.pressed = not button.pressed
 	
 	# var grid = []
+	var count = 0
 	var temp = true
 	for i in range(1, size+1):
 		# var line = []
@@ -105,10 +112,15 @@ func light(n, action):
 			# line.append(button.pressed)
 			if not button.pressed:
 				temp = false
+			else:
+				count += 1
 		# grid.append(line)
 	# print_grid(grid)
 
-	if temp:
+	barra.set_level(float(count)/pow(size, 2))
+	print(count)
+
+	if temp and not action:
 		win = true
 		leave()
 	#print("Win: ", win)

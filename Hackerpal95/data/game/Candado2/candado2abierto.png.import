@@ -7,10 +7,10 @@ path="res://.import/candado2abierto.png-12ecbdc6ac5a9b1e3703c91c347be11f.stex"
 [deps]
 
 source_file="res://data/game/Candado2/candado2abierto.png"
-source_md5="d701bb823a3278b88867986e24782e09"
+source_md5="298d8a765e75e2dc9c2d26f545b04b45"
 
 dest_files=[ "res://.import/candado2abierto.png-12ecbdc6ac5a9b1e3703c91c347be11f.stex" ]
-dest_md5="19718dfb4605a09df2b052a1f692d41c"
+dest_md5="ab0503aa7fa19b97688263b15c5ab485"
 
 [params]
 

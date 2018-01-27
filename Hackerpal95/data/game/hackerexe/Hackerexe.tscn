@@ -4,8 +4,6 @@
 
 [node name="Game" type="Node2D"]
 
-editor/display_folded = true
-
 [node name="Ventana" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 1 )

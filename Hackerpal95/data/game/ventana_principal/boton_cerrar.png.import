@@ -7,10 +7,10 @@ path="res://.import/boton_cerrar.png-db20c39078edc2a150ddce08807e4627.stex"
 [deps]
 
 source_file="res://data/game/ventana_principal/boton_cerrar.png"
-source_md5="7061f1427db282bd3cfccde1a6fc91dd"
+source_md5="dc26e1dc44e9701ac5f1e8ebc1a5476b"
 
 dest_files=[ "res://.import/boton_cerrar.png-db20c39078edc2a150ddce08807e4627.stex" ]
-dest_md5="5d27a9366810d453a1e73922e7952614"
+dest_md5="d072a4aec99409de6f5bcaa6faf92840"
 
 [params]
 
