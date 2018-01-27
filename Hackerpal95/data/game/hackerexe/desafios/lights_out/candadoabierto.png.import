@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ventanahp.png-1918a6f69851dd4d05be624b0f2bc07a.stex"
+path="res://.import/candadoabierto.png-e697a552d297282a8fc9af78e77d40b8.stex"
 
 [deps]
 
-source_file="res://data/game/hackerhp/Ventanahp.png"
-source_md5="04af30168bb4fabd92a6b57de09d82fa"
+source_file="res://data/game/hackerexe/desafios/lights_out/candadoabierto.png"
+source_md5="de1f3f3b006a357e697c4693c1805178"
 
-dest_files=[ "res://.import/Ventanahp.png-1918a6f69851dd4d05be624b0f2bc07a.stex" ]
-dest_md5="7b1ab1369665b9872c04de2195df8c25"
+dest_files=[ "res://.import/candadoabierto.png-e697a552d297282a8fc9af78e77d40b8.stex" ]
+dest_md5="1c5ac553158d9c24243bdd32004acddc"
 
 [params]
 

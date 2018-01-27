@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ventanahp.png-1918a6f69851dd4d05be624b0f2bc07a.stex"
+path="res://.import/rectangulo.png-a27ee731d1eb29ee0fd7290758c50782.stex"
 
 [deps]
 
-source_file="res://data/game/hackerhp/Ventanahp.png"
-source_md5="04af30168bb4fabd92a6b57de09d82fa"
+source_file="res://data/game/barra_carga/rectangulo.png"
+source_md5="aa0766a7461897b3e68049940e3a93ac"
 
-dest_files=[ "res://.import/Ventanahp.png-1918a6f69851dd4d05be624b0f2bc07a.stex" ]
-dest_md5="7b1ab1369665b9872c04de2195df8c25"
+dest_files=[ "res://.import/rectangulo.png-a27ee731d1eb29ee0fd7290758c50782.stex" ]
+dest_md5="66195318b064d662b38156f0f51b3658"
 
 [params]
 

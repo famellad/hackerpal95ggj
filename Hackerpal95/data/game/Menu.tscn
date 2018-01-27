@@ -32,7 +32,7 @@ use_filter = false
 font_data = SubResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Node" index="0"]
+[node name="Menu" type="Node"]
 
 script = ExtResource( 1 )
 
