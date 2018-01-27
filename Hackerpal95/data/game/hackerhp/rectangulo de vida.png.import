@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/rectangulo de vida.png-3ad074b35dd8a3f843c6136cdf2dbe49.stex"
+
+[deps]
+
+source_file="res://data/game/hackerhp/rectangulo de vida.png"
+source_md5="eb52c18595a6e14ce0eb2bf276aebbf3"
+
+dest_files=[ "res://.import/rectangulo de vida.png-3ad074b35dd8a3f843c6136cdf2dbe49.stex" ]
+dest_md5="e82993cec33b1618f3bb5bbeedcc76ac"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
