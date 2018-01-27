@@ -7,7 +7,11 @@ extends Node
 
 func _ready():
 	$Centerer/Hackerexe.hide()
-	pass
+	var screen = OS.get_screen_size()
+	var centro_x = (screen.x - 1024) / 2
+	var centro_y = (screen.y - 768) / 2
+	$Centerer.translate(Vector2(centro_x, centro_y))
+	
 	
 
 func _process(delta):
