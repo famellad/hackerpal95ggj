@@ -1,0 +1,24 @@
+extends Node2D
+
+# class member variables go here, for example:
+# var a = 2
+# var b = "textvar"
+var infected = false
+
+func _ready():
+	# Called every time the node is added to the scene.
+	# Initialization here
+	#infect()
+	pass
+
+func set_pos(x, y):
+	pass
+
+func infect():
+	infected = true
+	$Sprite.frame = 1
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass

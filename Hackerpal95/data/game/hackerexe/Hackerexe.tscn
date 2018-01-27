@@ -1,13 +1,79 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://data/game/hackerexe/ventana.png" type="Texture" id=1]
+[ext_resource path="res://data/game/hackerexe/Hackerexe.gd" type="Script" id=1]
+[ext_resource path="res://data/game/hackerexe/ventana_principal.png" type="Texture" id=2]
+[ext_resource path="res://data/game/hackerexe/Close.gd" type="Script" id=3]
+[ext_resource path="res://data/game/hackerexe/boton_cerrar.png" type="Texture" id=4]
 
-[node name="Game" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.50336, 7.47709 )
+
+[sub_resource type="DynamicFontData" id=1]
+
+font_path = "res://data/fonts/Nairi-Normal.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 14
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Game" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
 
 [node name="Ventana" type="Sprite" parent="." index="0"]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Close" type="Area2D" parent="Ventana" index="0"]
+
+position = Vector2( 685, 14 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite_Close" type="Sprite" parent="Ventana/Close" index="0"]
+
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Shape_Close" type="CollisionShape2D" parent="Ventana/Close" index="1"]
+
+shape = SubResource( 3 )
+
+[node name="Label" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 4.0
+margin_right = 225.0
+margin_bottom = 23.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Hackerpal '95 -- Hacking Level: WEAK"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
 
 

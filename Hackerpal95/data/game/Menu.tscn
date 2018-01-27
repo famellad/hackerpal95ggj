@@ -78,9 +78,8 @@ max_lines_visible = -1
 
 [node name="Hackerexe" parent="." index="3" instance=ExtResource( 4 )]
 
-visible = false
-script = ExtResource( 5 )
-_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+position = Vector2( 154.115, 113.119 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Window" type="Area2D" parent="Hackerexe" index="1"]
 
@@ -102,6 +101,6 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 [connection signal="button_up" from="Icono" to="Icono" method="_on_Icono_button_up"]
 
-[connection signal="input_event" from="Hackerexe/Window" to="Hackerexe" method="_on_Window_input_event"]
+position = Vector2( 692.131, 31.4605 )
 
 

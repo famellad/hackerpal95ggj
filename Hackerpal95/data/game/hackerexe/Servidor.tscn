@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://data/game/hackerexe/icons/servidor.png" type="Texture" id=1]
+
+[node name="Servidor" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+hframes = 5
+_sections_unfolded = [ "Animation" ]
+
+
