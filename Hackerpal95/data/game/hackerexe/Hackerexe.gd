@@ -87,7 +87,7 @@ func open_challenge(diff):
 	
 	challenge_open = true
 	
-	var rand = randi() % 3
+	var rand = 1#randi() % 3
 	
 	var c
 	

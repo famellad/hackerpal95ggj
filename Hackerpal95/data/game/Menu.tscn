@@ -1,26 +1,25 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://data/game/Menu.gd" type="Script" id=1]
 [ext_resource path="res://data/game/fondo.png" type="Texture" id=2]
-[ext_resource path="res://data/game/barra/barr_tareas.png" type="Texture" id=3]
-[ext_resource path="res://data/game/barra/compucito.png" type="Texture" id=4]
-[ext_resource path="res://data/game/barra/Hora.gd" type="Script" id=5]
-[ext_resource path="res://data/game/icono.png" type="Texture" id=6]
-[ext_resource path="res://data/game/Icono.gd" type="Script" id=7]
-[ext_resource path="res://data/game/carpetas.png" type="Texture" id=8]
-[ext_resource path="res://data/game/conexion.png" type="Texture" id=9]
-[ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=10]
+[ext_resource path="res://data/game/barra/barra.png" type="Texture" id=3]
+[ext_resource path="res://data/game/barra/Hora.gd" type="Script" id=4]
+[ext_resource path="res://data/game/icono.png" type="Texture" id=5]
+[ext_resource path="res://data/game/Icono.gd" type="Script" id=6]
+[ext_resource path="res://data/game/carpetas.png" type="Texture" id=7]
+[ext_resource path="res://data/game/conexion.png" type="Texture" id=8]
+[ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=9]
 
-[sub_resource type="DynamicFontData" id=5]
+[sub_resource type="DynamicFontData" id=1]
 
-font_path = "res://data/fonts/aerxtabs_memesbruh03.ttf"
+font_path = "res://data/fonts/Nairi-Normal.ttf"
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 
 size = 16
 use_mipmaps = false
 use_filter = false
-font_data = SubResource( 5 )
+font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFontData" id=3]
@@ -56,15 +55,10 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="SpriteBarra" type="Sprite" parent="Centerer/Barra" index="0"]
 
-position = Vector2( 4.32288, 18.7018 )
+position = Vector2( 0, 16 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
-
-[node name="compucito" type="Sprite" parent="Centerer/Barra/SpriteBarra" index="0"]
-
-position = Vector2( 689.524, 12.9445 )
-texture = ExtResource( 4 )
 
 [node name="Hora" type="Label" parent="Centerer/Barra" index="1"]
 
@@ -72,36 +66,37 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 957.0
-margin_top = 25.0
-margin_right = 1015.0
-margin_bottom = 45.0
+margin_left = 959.0
+margin_top = 22.0
+margin_right = 1017.0
+margin_bottom = 42.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "16:20:00"
 align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 5 )
-_sections_unfolded = [ "Grow Direction", "custom_colors", "custom_fonts" ]
+script = ExtResource( 4 )
+_sections_unfolded = [ "Grow Direction", "custom_colors" ]
 
 [node name="Icono" type="Button" parent="Centerer" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 38.0
-margin_top = 35.0
-margin_right = 122.0
-margin_bottom = 122.0
+margin_left = 45.0
+margin_top = 53.0
+margin_right = 129.0
+margin_bottom = 140.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -111,10 +106,10 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 6 )
+icon = ExtResource( 5 )
 flat = true
 align = 1
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
 [node name="Nombre" type="Label" parent="Centerer/Icono" index="0"]
 
@@ -159,7 +154,7 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 7 )
 flat = true
 align = 1
 
@@ -206,7 +201,7 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 7 )
 flat = true
 align = 1
 
@@ -253,7 +248,7 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 7 )
 flat = true
 align = 1
 
@@ -300,7 +295,7 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 7 )
 flat = true
 align = 1
 
@@ -347,7 +342,7 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 9 )
+icon = ExtResource( 8 )
 flat = true
 align = 1
 
@@ -375,11 +370,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HackerHP" parent="Centerer" index="8" instance=ExtResource( 10 )]
+[node name="HackerHP" parent="Centerer" index="8" instance=ExtResource( 9 )]
 
 position = Vector2( 711.726, 14.8798 )
-
-[connection signal="button_down" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_down"]
 
 [connection signal="button_up" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_up"]
 
