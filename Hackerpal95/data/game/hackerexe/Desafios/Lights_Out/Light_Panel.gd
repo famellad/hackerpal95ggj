@@ -1,7 +1,9 @@
 extends Panel
 
-var size = 5
+var size = 3
 var pixel = 100
+var move_x = 0
+var move_y = 0
 
 func print_grid(grid):
 	var temp = ""
@@ -11,16 +13,16 @@ func print_grid(grid):
 
 func create_lights():
 	var panel = get_node(".")
-	panel.margin_right = size*pixel
-	panel.margin_bottom = size*pixel
+	panel.margin_right = size*pixel + move_x
+	panel.margin_bottom = size*pixel + move_y
 	for i in range(1, size+1):
 		for j in range(size):
 			var button = TextureButton.new()
 			button.name = "Button"+str(i+size*j)
-			button.margin_left = pixel*(i-1) + 2
-			button.margin_right = pixel*i - 2
-			button.margin_top = pixel*j + 2
-			button.margin_bottom = pixel*(j+1) - 2
+			button.margin_left = pixel*(i-1) + 2 + move_x
+			button.margin_right = pixel*i - 2 + move_x
+			button.margin_top = pixel*j + 2 + move_y
+			button.margin_bottom = pixel*(j+1) - 2 + move_y
 			button.toggle_mode = true
 			add_child(button)
 

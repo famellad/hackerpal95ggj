@@ -1,29 +1,15 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://data/game/hackerexe/ventana.png" type="Texture" id=1]
-[ext_resource path="res://data/game/hackerexe/Desafios/Lights_Out/Light_Panel.gd" type="Script" id=2]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
+
+editor/display_folded = true
 
 [node name="Ventana" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 1 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
-
-[node name="Lights_Panel" type="Panel" parent="Ventana" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-script = ExtResource( 2 )
 
 
