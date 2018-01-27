@@ -8,11 +8,15 @@ var coords = Vector2(0, 0)
 var hackerexe
 var diff = "easy"
 
+var active = false
+
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	#infect()
+	$Sprite.frame = 2
 	pass
+
+func activate():
+	active = true
+	$Sprite.frame = 0
 
 func infect():
 	infected = true

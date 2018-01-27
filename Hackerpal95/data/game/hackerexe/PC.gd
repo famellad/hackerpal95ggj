@@ -7,13 +7,17 @@ extends Node2D
 var infected = false
 var coords = Vector2(0, 0)
 var hackerexe
-
 var diff = "medium"
 
+var active = false
+
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	$Sprite.frame = 2
 	pass
+
+func activate():
+	active = true
+	$Sprite.frame = 0
 
 func infect():
 	infected = true
