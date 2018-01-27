@@ -1,6 +1,6 @@
 extends Panel
 
-var size = 4
+var size = 5
 var pixel = 100
 
 func print_grid(grid):
