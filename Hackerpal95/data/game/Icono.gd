@@ -4,6 +4,8 @@ extends Button
 # var a = 2
 # var b = "textvar"
 
+var selected_texture = preload("res://data/game/iconoseleccionado.png")
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -17,4 +19,5 @@ func _ready():
 
 func _on_Icono_button_up():
 	get_parent().get_node("Hackerexe").show()
+	icon = selected_texture
 
