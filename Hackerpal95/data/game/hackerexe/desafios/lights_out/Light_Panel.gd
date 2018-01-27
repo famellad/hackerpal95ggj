@@ -7,7 +7,10 @@ var move_y = 22
 var win = false
 var moves = []
 var map = {3:"un computador", 5:"un cybercafe", 7:"un servidor", 9:"la NASA"}
+var difficulty = "easy"
 var style = StyleBoxFlat.new()
+
+signal succesful_hack
 
 func print_grid(grid):
 	var temp = ""
@@ -32,10 +35,12 @@ func leave():
 	text.align = 1
 	if win:
 		text.text = "Has hackeado " + map[size]
+		emit_signal("succesful_hack", difficulty, "lights_out")
 	else:
 		text.text = "Te han atrapado"
 
 func set_diff(diff):
+	difficulty = diff
 	if diff == "easy":
 		size = 3
 	elif diff == "medium":
@@ -45,6 +50,7 @@ func set_diff(diff):
 	elif diff == "insane":
 		size = 9
 	create_lights()
+	light_up()
 
 func create_lights():
 	var panel = get_node(".")
@@ -118,7 +124,7 @@ func light(n, action):
 	# print_grid(grid)
 
 	barra.set_level(float(count)/pow(size, 2))
-	print(count)
+	# print(count)
 
 	if temp and not action:
 		win = true
