@@ -1,5 +1,13 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Game" type="Node"]
+[ext_resource path="res://data/game/hackerexe/ventana.png" type="Texture" id=1]
+
+[node name="Game" type="Node" index="0"]
+
+[node name="Ventana" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
 
 
