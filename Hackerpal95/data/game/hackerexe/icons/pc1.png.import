@@ -7,10 +7,10 @@ path="res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex"
 [deps]
 
 source_file="res://data/game/hackerexe/icons/pc1.png"
-source_md5="146b7cc43dac207c449e6691a7b635a9"
+source_md5="f7d97bdb6fb95494719661119ef82eed"
 
 dest_files=[ "res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex" ]
-dest_md5="996fdc54458b61a5c03dba3d41b03975"
+dest_md5="4cc80d4e5ee999ae7e0896a7a4a957dd"
 
 [params]
 

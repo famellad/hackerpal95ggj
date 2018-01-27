@@ -16,4 +16,5 @@ func _ready():
 
 
 func _on_CloseButton_button_up():
-	get_parent().get_parent().hide()
+	get_parent().get_parent().desktop.enable_button()
+	get_parent().get_parent().queue_free()

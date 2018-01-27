@@ -7,7 +7,7 @@ var diff = "easy"
 var mash_level = 0
 var mash_drain = 20
 var mash_threshold = 0
-var possible_scancodes = [65, 57, 72, 75]
+var possible_scancodes = [KEY_A, KEY_C, KEY_H, KEY_K]
 var diff_scancodes = []
 var mash_key_scancode = 75 # 75 es k
 
@@ -17,7 +17,7 @@ var draining = true
 
 func _ready():
 	set_process_input(true)
-	set_difficulty("insane")
+	#set_difficulty("insane")
 
 func set_hackerexe(object):
 	hackerexe = object
@@ -53,6 +53,8 @@ func pick_scancodes(number):
 func victory():
 	mash_level = mash_threshold
 	draining = false
+	hackerexe.last_hacked()
+	queue_free()
 
 func _process(delta):
 	if randf() < 0.01:
@@ -69,13 +71,13 @@ func _process(delta):
 	
 	var mash_string = ""
 	
-	if mash_key_scancode == 65:
+	if mash_key_scancode == KEY_A:
 		mash_string = "A"
-	elif mash_key_scancode == 57:
+	elif mash_key_scancode == KEY_C:
 		mash_string = "C"
-	elif mash_key_scancode == 72:
+	elif mash_key_scancode == KEY_H:
 		mash_string = "H"
-	elif mash_key_scancode == 75:
+	elif mash_key_scancode == KEY_K:
 		mash_string = "K"
 	
 	# DEBUG
