@@ -50,15 +50,19 @@ _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Barra" type="Node2D" parent="Centerer" index="1"]
 
-position = Vector2( 0, 720 )
+position = Vector2( 0, 736 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="SpriteBarra" type="Sprite" parent="Centerer/Barra" index="0"]
 
-position = Vector2( 0, 16 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="compucito" type="Sprite" parent="Centerer/Barra/SpriteBarra" index="0"]
+
+position = Vector2( 938.185, 16.5986 )
+texture = ExtResource( 4 )
 
 [node name="Hora" type="Label" parent="Centerer/Barra" index="1"]
 
@@ -67,9 +71,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 959.0
-margin_top = 22.0
+margin_top = 9.0
 margin_right = 1017.0
-margin_bottom = 42.0
+margin_bottom = 29.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
