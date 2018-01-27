@@ -1,17 +1,38 @@
 extends Node2D
-var time = 5
+##var time = 5
 var word
+var textnode
+var diffarray = ['easy','medium','hard','insane']
+
+var diff = 'easy' setget set_diff
+
+func set_diff(newvalue):
+    diff=newvalue
 
 func _ready():
   randomize()
-  word = and_word(get_words('easy'))
-  
+  ##set_diff(rand_word(diffarray))
+  word = rand_word(get_words(diff)).to_upper()
+  textnode = $Panel/CenterContainer/VBoxContainer/Typetext 
+  textnode.text = word
   
 func _input(event):
   if (event is InputEventKey and !event.echo and event.pressed):
-    var pressedChar = OS.get_scancode_string(event.scancode).to_lower()
-    $Panel/CenterContainer/Typetext.text += pressedChar
-  
+    if(event.scancode >= 65 and event.scancode <= 90):
+      #var pressedChar = str(event.scancode)
+      var pressedChar = OS.get_scancode_string(event.scancode)
+      #textnode.text += pressedChar
+      if (word.begins_with(pressedChar)):
+        word.erase(0,1)
+        ##$debug.text += word
+        textnode.text = word
+        if(word ==''):
+          textnode.text = 'SUCCESS!!'
+          queue_free()
+      else:
+        textnode.text = 'Error!!!'
+        ##queue_free()
+      
 func _process(delta):
 #  # Called every frame. Delta is time since last frame.
 #  # Update game loa
