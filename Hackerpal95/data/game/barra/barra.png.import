@@ -7,10 +7,10 @@ path="res://.import/barra.png-abfe1927e33a1b7dbb3ed1380026e1ce.stex"
 [deps]
 
 source_file="res://data/game/barra/barra.png"
-source_md5="4ef9a49f57824101f3d15c4b03e55dfa"
+source_md5="e958ed98ae0bd2dfbfb54abd9955b786"
 
 dest_files=[ "res://.import/barra.png-abfe1927e33a1b7dbb3ed1380026e1ce.stex" ]
-dest_md5="f3144ff56b5c34754524f65c3bcb71c7"
+dest_md5="8ffc915f044db1ab06bdd26099d96cc7"
 
 [params]
 

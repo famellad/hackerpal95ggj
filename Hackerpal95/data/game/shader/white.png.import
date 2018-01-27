@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ventanahp.png-1918a6f69851dd4d05be624b0f2bc07a.stex"
+path="res://.import/white.png-6e35633dfdb17d94990e2df17e50f742.stex"
 
 [deps]
 
-source_file="res://data/game/hackerhp/Ventanahp.png"
-source_md5="04af30168bb4fabd92a6b57de09d82fa"
+source_file="res://data/game/shader/white.png"
+source_md5="b68844373120b3795a9b80a7922d0c76"
 
-dest_files=[ "res://.import/Ventanahp.png-1918a6f69851dd4d05be624b0f2bc07a.stex" ]
-dest_md5="7b1ab1369665b9872c04de2195df8c25"
+dest_files=[ "res://.import/white.png-6e35633dfdb17d94990e2df17e50f742.stex" ]
+dest_md5="f17f3e225bc88873851ebd43ba696987"
 
 [params]
 

@@ -36,34 +36,39 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 script = ExtResource( 1 )
 
-[node name="Fondo" type="Sprite" parent="." index="0"]
+[node name="Centerer" type="Node2D" parent="." index="0"]
 
-position = Vector2( 640, 360 )
-texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Barra" type="Node2D" parent="." index="1"]
+[node name="Fondo" type="Sprite" parent="Centerer" index="0"]
+
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Barra" type="Node2D" parent="Centerer" index="1"]
 
 position = Vector2( 0, 720 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="SpriteBarra" type="Sprite" parent="Barra" index="0"]
+[node name="SpriteBarra" type="Sprite" parent="Centerer" index="2"]
 
-position = Vector2( 0, -32 )
+position = Vector2( 0, 736 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
 
-[node name="Hora" type="Label" parent="Barra" index="1"]
+[node name="Hora" type="Label" parent="Centerer" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1216.0
-margin_top = -26.0
-margin_right = 1274.0
-margin_bottom = -6.0
+margin_left = 959.0
+margin_top = 742.0
+margin_right = 1017.0
+margin_bottom = 762.0
+grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -72,13 +77,14 @@ size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "16:20:00"
+align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 4 )
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Grow Direction", "custom_colors" ]
 
-[node name="Icono" type="Button" parent="." index="2"]
+[node name="Icono" type="Button" parent="Centerer" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -86,8 +92,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 45.0
 margin_top = 53.0
-margin_right = 102.0
-margin_bottom = 104.0
+margin_right = 124.0
+margin_bottom = 140.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -102,16 +108,16 @@ flat = true
 align = 1
 script = ExtResource( 6 )
 
-[node name="Nombre" type="Label" parent="Icono" index="0"]
+[node name="Nombre" type="Label" parent="Centerer" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -4.0
-margin_top = 79.0
-margin_right = 83.0
-margin_bottom = 99.0
+margin_left = 41.0
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 152.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -126,11 +132,11 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Hackerexe" parent="." index="3" instance=ExtResource( 7 )]
+[node name="Hackerexe" parent="Centerer" index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 252.198, 83.5091 )
+position = Vector2( 54.1816, 118.671 )
 _sections_unfolded = [ "Visibility" ]
 
-[connection signal="button_up" from="Icono" to="Icono" method="_on_Icono_button_up"]
+[connection signal="button_up" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_up"]
 
 
