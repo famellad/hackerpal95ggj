@@ -2,7 +2,7 @@
 
 [ext_resource path="res://data/game/hackerexe/desafios/masher/Masher.gd" type="Script" id=1]
 
-[node name="Masher" type="Node2D"]
+[node name="Masher" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -14,7 +14,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
+margin_right = 78.0
 margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
