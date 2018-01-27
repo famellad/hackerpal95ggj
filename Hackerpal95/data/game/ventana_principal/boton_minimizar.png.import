@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex"
+path="res://.import/boton_minimizar.png-0945afa5700618088597b8cf8d5be40d.stex"
 
 [deps]
 
-source_file="res://data/game/hackerexe/icons/pc1.png"
-source_md5="146b7cc43dac207c449e6691a7b635a9"
+source_file="res://data/game/ventana_principal/boton_minimizar.png"
+source_md5="1ee45420c4e33c454d05af9902101d4e"
 
-dest_files=[ "res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex" ]
-dest_md5="996fdc54458b61a5c03dba3d41b03975"
+dest_files=[ "res://.import/boton_minimizar.png-0945afa5700618088597b8cf8d5be40d.stex" ]
+dest_md5="8326661ccc23df46ce2c814703b282e4"
 
 [params]
 
