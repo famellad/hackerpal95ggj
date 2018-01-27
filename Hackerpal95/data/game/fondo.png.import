@@ -7,10 +7,10 @@ path="res://.import/fondo.png-16563767cc87f4d0e41767df64b8f65a.stex"
 [deps]
 
 source_file="res://data/game/fondo.png"
-source_md5="2b510882b8884017a2af892d80e3e4c1"
+source_md5="7fe91dc4a4a4bdad337013ba448f80bc"
 
 dest_files=[ "res://.import/fondo.png-16563767cc87f4d0e41767df64b8f65a.stex" ]
-dest_md5="bca9e12e6a1a45f13d954f81e794fff6"
+dest_md5="4951c8527f4a5c9f57a045064fce0580"
 
 [params]
 

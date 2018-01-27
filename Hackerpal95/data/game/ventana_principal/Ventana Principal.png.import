@@ -7,10 +7,10 @@ path="res://.import/Ventana Principal.png-a878e698adf8cba2623fcb3cb600e50d.stex"
 [deps]
 
 source_file="res://data/game/ventana_principal/Ventana Principal.png"
-source_md5="72189760d1923e75537fe98f3dcac27c"
+source_md5="8bfba944257aff99861c33d1f2046a08"
 
 dest_files=[ "res://.import/Ventana Principal.png-a878e698adf8cba2623fcb3cb600e50d.stex" ]
-dest_md5="4b8d1e2d1554fbdda246d82e02bfb463"
+dest_md5="600654dd533fa5d7904e9a36c92c20cd"
 
 [params]
 
