@@ -7,10 +7,10 @@ path="res://.import/celu.png-c7285036e9f5adae9eb47293b3097d22.stex"
 [deps]
 
 source_file="res://data/game/hackerexe/icons/celu.png"
-source_md5="ef87801d5f61ba28f32b9c4f83b20ebb"
+source_md5="4e1b166b43d9f6b3ea8b0368ac1e201b"
 
 dest_files=[ "res://.import/celu.png-c7285036e9f5adae9eb47293b3097d22.stex" ]
-dest_md5="d07b3124c0c422b0f193e262dbe13408"
+dest_md5="02426141931e03f2444d318fb88d73b0"
 
 [params]
 
