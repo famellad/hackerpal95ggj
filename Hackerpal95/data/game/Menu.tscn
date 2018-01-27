@@ -64,6 +64,7 @@ margin_left = 1216.0
 margin_top = -26.0
 margin_right = 1274.0
 margin_bottom = -6.0
+grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
@@ -72,11 +73,12 @@ size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "16:20:00"
+align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 script = ExtResource( 4 )
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Grow Direction", "custom_colors" ]
 
 [node name="Icono" type="Button" parent="." index="2"]
 
