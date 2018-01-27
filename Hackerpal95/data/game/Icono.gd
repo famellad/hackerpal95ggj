@@ -16,5 +16,5 @@ func _ready():
 
 
 func _on_Icono_button_up():
-	get_parent().get_node("Game").show()
+	get_parent().get_node("Hackerexe").show()
 
