@@ -70,9 +70,14 @@ func create_buttons(rows, columns):
 func set_desktop(object):
 	desktop = object
 
+func ultimate_victory():
+	# Mostrar la verdad
+	pass
+
 func last_hacked():
 	challenge_open = false
 	if last_coord.y == 100:
+		ultimate_victory()
 		return
 	get_node("but_tier" + str(last_coord.y) + "_" + str(last_coord.x)).infect()
 	
@@ -97,14 +102,14 @@ func open_challenge(diff):
 		c = lights_out.instance()
 		c.set_hackerexe(self)
 		c.set_diff(diff)
-		c.position.x = 400
-		c.position.y = 200
+		#c.position.x = 400
+		#c.position.y = 200
 		add_child(c)
 	elif rand == 2:
 		# Strings
 		c = strings.instance()
 		c.set_hackerexe(self)
-		c.set_diff(diff)
+		c.set_difficulty(diff)
 		add_child(c)
 		
 

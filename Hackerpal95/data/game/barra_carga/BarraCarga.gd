@@ -13,6 +13,8 @@ func _ready():
 		s.set_texture(sprite_texture)
 		s.centered = false
 		add_child(s)
+		
+	set_level(0.2)
 
 func set_level(new_level):
 	for i in range(0, 20):
