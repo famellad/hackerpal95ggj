@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://data/game/fondo.png" type="Texture" id=1]
 [ext_resource path="res://data/game/barra/barra.png" type="Texture" id=2]
-[ext_resource path="res://data/game/hackerexe/Hackerexe.tscn" type="PackedScene" id=3]
+[ext_resource path="res://data/game/Icono.gd" type="Script" id=3]
+[ext_resource path="res://data/game/hackerexe/Hackerexe.tscn" type="PackedScene" id=4]
 
 [node name="Menu" type="Node" index="0"]
 
@@ -19,9 +20,10 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="SpriteBarra" type="Sprite" parent="Barra" index="0"]
 
-position = Vector2( 640, -16 )
+position = Vector2( 0, -32 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="Icono" type="Button" parent="." index="2"]
 
@@ -45,6 +47,7 @@ shortcut = null
 group = null
 flat = false
 align = 1
+script = ExtResource( 3 )
 
 [node name="Nombre" type="Label" parent="Icono" index="0"]
 
@@ -67,6 +70,12 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Hackerexe" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Hackerexe" type="Node2D" parent="." index="3" instance=ExtResource( 4 )]
+
+visible = false
+position = Vector2( 306.084, 140.119 )
+_sections_unfolded = [ "Visibility" ]
+
+[connection signal="button_up" from="Icono" to="Icono" method="_on_Icono_button_up"]
 
 
