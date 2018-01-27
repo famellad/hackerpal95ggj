@@ -7,10 +7,10 @@ path="res://.import/icono.png-c5a3fdf36101e8cd89aea465a8053dc8.stex"
 [deps]
 
 source_file="res://data/game/icono.png"
-source_md5="2d6c4a3ce0d2b10b2eadfaf93658159a"
+source_md5="d170e0ef044568020a99acf47ec544d3"
 
 dest_files=[ "res://.import/icono.png-c5a3fdf36101e8cd89aea465a8053dc8.stex" ]
-dest_md5="21549edc4587de09abe999a3b7cbca23"
+dest_md5="f98f06a23b6e4d856164225dc9b2ca2e"
 
 [params]
 
