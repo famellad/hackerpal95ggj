@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex"
+path="res://.import/boton_pregunta.png-ceb6e446d3a9c39352c7d9e50fbc3f23.stex"
 
 [deps]
 
-source_file="res://data/game/hackerexe/icons/pc1.png"
-source_md5="146b7cc43dac207c449e6691a7b635a9"
+source_file="res://data/game/ventana_principal/boton_pregunta.png"
+source_md5="343ee10ff945518a666081e894a58586"
 
-dest_files=[ "res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex" ]
-dest_md5="996fdc54458b61a5c03dba3d41b03975"
+dest_files=[ "res://.import/boton_pregunta.png-ceb6e446d3a9c39352c7d9e50fbc3f23.stex" ]
+dest_md5="2e7abd8085bbc7d597fad36776c43d71"
 
 [params]
 

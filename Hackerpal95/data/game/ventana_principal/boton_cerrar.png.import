@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex"
+path="res://.import/boton_cerrar.png-db20c39078edc2a150ddce08807e4627.stex"
 
 [deps]
 
-source_file="res://data/game/hackerexe/icons/pc1.png"
-source_md5="146b7cc43dac207c449e6691a7b635a9"
+source_file="res://data/game/ventana_principal/boton_cerrar.png"
+source_md5="7061f1427db282bd3cfccde1a6fc91dd"
 
-dest_files=[ "res://.import/pc1.png-d8bb88ae01f470f59532271b62a452e7.stex" ]
-dest_md5="996fdc54458b61a5c03dba3d41b03975"
+dest_files=[ "res://.import/boton_cerrar.png-db20c39078edc2a150ddce08807e4627.stex" ]
+dest_md5="5d27a9366810d453a1e73922e7952614"
 
 [params]
 
