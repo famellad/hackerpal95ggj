@@ -15,6 +15,9 @@ func _ready():
 		add_child(s)
 
 func set_level(new_level):
+	for i in range(0, 20):
+		get_node("box_" + str(i)).hide()
+	
 	if new_level > 1:
 		new_level = 1
 	

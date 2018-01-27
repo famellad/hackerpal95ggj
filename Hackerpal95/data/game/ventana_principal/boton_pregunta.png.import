@@ -7,10 +7,10 @@ path="res://.import/boton_pregunta.png-ceb6e446d3a9c39352c7d9e50fbc3f23.stex"
 [deps]
 
 source_file="res://data/game/ventana_principal/boton_pregunta.png"
-source_md5="343ee10ff945518a666081e894a58586"
+source_md5="8fec45eb641e9424b111658f0f78a251"
 
 dest_files=[ "res://.import/boton_pregunta.png-ceb6e446d3a9c39352c7d9e50fbc3f23.stex" ]
-dest_md5="2e7abd8085bbc7d597fad36776c43d71"
+dest_md5="3c2cfe0f2b311f50ec1b3dc05898987a"
 
 [params]
 
