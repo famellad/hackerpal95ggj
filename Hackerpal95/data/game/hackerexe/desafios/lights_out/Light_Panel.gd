@@ -1,16 +1,18 @@
 extends Sprite
 
-var size = 6
-var pixel = 80
-var move_x = 0
-var move_y = 42
+var size = 3
+var pixel = 70
+var move_x = 15
+var move_y = 22 + 26
 var win = false
 var moves = []
 var map = {3:"a cellphone", 4:"a PC", 6:"a server", 8:"BASA"}
 var difficulty = "easy"
 var barracarga = preload("res://data/game/barra_carga/BarraCarga.tscn")
+var easy = load("res://data/game/hackerexe/desafios/lights_out/nivel_1.png")
 var barra
 var hackerexe
+
 
 func print_grid(grid):
 	var temp = ""
@@ -57,10 +59,12 @@ func set_diff(diff):
 
 func create_lights():
 	if size == 3:
-		pixel = 90
-	else:
 		pixel = 80
+	else:
+		pixel = 70
 	var sprite = get_node(".")
+	sprite.texture = easy
+	print(sprite.texture)
 	#sprite.margin_right = size*pixel + move_x
 	#sprite.margin_bottom = size*pixel + move_y
 	
@@ -71,10 +75,10 @@ func create_lights():
 		for j in range(size):
 			var button = TextureButton.new()
 			button.name = "Button"+str(i+size*j)
-			button.margin_left = pixel*(i-1) + 2 + move_x
-			button.margin_right = pixel*i - 2 + move_x
-			button.margin_top = pixel*j + 2 + move_y
-			button.margin_bottom = pixel*(j+1) - 2 + move_y
+			button.margin_left = pixel*(i-1) + 10 + move_x
+			button.margin_right = pixel*i - 10 + move_x
+			button.margin_top = pixel*j + 10 + move_y
+			button.margin_bottom = pixel*(j+1) - 10 + move_y
 			button.toggle_mode = true
 			button.pressed = true
 			button.texture_normal = load("res://data/game/Candado2/candado2cerrado.png")
@@ -161,6 +165,7 @@ func _ready():
 	print("hola")
 	barra = barracarga.instance()
 	barra.name = "BarraCarga"
+	barra.position.y = 26
 	add_child(barra)
 	pass
 	#for i in range(1, pow(size, 2)+1):
