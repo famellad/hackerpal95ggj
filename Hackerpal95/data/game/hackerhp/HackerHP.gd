@@ -5,9 +5,8 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
+	#set_process_input(true)
 	$BarraCarga.set_level(1)
 
 #func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
 #	pass
