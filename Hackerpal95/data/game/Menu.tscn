@@ -5,7 +5,33 @@
 [ext_resource path="res://data/game/Icono.gd" type="Script" id=3]
 [ext_resource path="res://data/game/hackerexe/Hackerexe.tscn" type="PackedScene" id=4]
 
+<<<<<<< Updated upstream
 [node name="Menu" type="Node"]
+=======
+[sub_resource type="DynamicFontData" id=1]
+
+font_path = "res://data/fonts/Nairi-Normal.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 18
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Resource", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Menu" type="Node"]
+
+script = ExtResource( 1 )
+>>>>>>> Stashed changes
 
 [node name="Fondo" type="Sprite" parent="." index="0"]
 
