@@ -106,8 +106,12 @@ func last_hacked():
 	
 	print(str(last_coord.y))
 	
-	if last_coord.y == tier:
+	if last_coord.y == 4:
+		$basa.activate()
+		tier += 1
+	elif last_coord.y == tier:
 		tier_up()
+	
 	get_node("but_tier" + str(last_coord.y) + "_" + str(last_coord.x)).infect()
 	
 	
@@ -117,7 +121,7 @@ func open_challenge(diff):
 	
 	challenge_open = true
 	
-	var rand = randi() % 3
+	var rand = 2#randi() % 3
 	
 	var c
 	
@@ -142,7 +146,18 @@ func open_challenge(diff):
 		c.set_difficulty(diff)
 		add_child(c)
 		
-
+func new_title():
+	var title = "Hackerpal '95 -- Hacking Level: "
+	var newLevel = ""
+	match tier:
+		0 : newLevel = "WEAK"
+		1 : newLevel = "LAUGHABLE"
+		2 : newLevel = "MEH"
+		3 : newLevel = "RESPECTABLE"
+		4 : newLevel = "RADICAL"
+		5 : newLevel = " I N T E N S E"
+	
+	$Label.text = title + newLevel
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
