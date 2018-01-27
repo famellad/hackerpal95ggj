@@ -21,24 +21,25 @@ func set_hackerexe(obj):
 	hackerexe = obj
 
 func leave():
-	var popup = PopupPanel.new()
-	popup.popup_centered()
-	popup.margin_top = pixel
-	popup.margin_bottom = pixel + 300
-	popup.margin_left = pixel
-	popup.margin_right = pixel + 400
-	popup.visible = true
-	add_child(popup)
-	var text = Label.new()
-	popup.add_child(text)
-	text.margin_top = 100
-	text.margin_left = 50
-	text.align = 1
-	if win:
-		text.text = "You've hacked " + map[size]
+	# var popup = PopupPanel.new()
+	# popup.popup_centered()
+	# popup.margin_top = pixel
+	# popup.margin_bottom = pixel + 300
+	# popup.margin_left = pixel
+	# popup.margin_right = pixel + 400
+	# popup.visible = true
+	# add_child(popup)
+	# var text = Label.new()
+	# popup.add_child(text)
+	# text.margin_top = 100
+	# text.margin_left = 50
+	# text.align = 1
+	# if win:
+	#	text.text = "You've hacked " + map[size]
 		#hackerexe.last_hacked()
-	else:
-		text.text = "You've been caught"
+	# else:
+	#	text.text = "You've been caught"
+	pass
 
 func set_diff(diff):
 	difficulty = diff
@@ -91,6 +92,10 @@ func light_up():
 			light(l[n], true)
 			i += 1
 			l.erase(l[n])
+	
+	for i in range(1, pow(size, 2)+1):
+		var button = get_node("Button"+str(i))
+		button.connect("pressed", self, "light", [i, false]) 
 
 func light(n, action):
 	var barra = get_node("BarraCarga")
@@ -137,21 +142,22 @@ func light(n, action):
 		# grid.append(line)
 	# print_grid(grid)
 
-	barra.set_level(float(count)/pow(size, 2))
+	#barra.set_level(float(count)/pow(size, 2))
 	# print(count)
 
 	if temp and not action:
 		win = true
-		leave()
+		hackerexe.last_hacked()
+		get_node(".").queue_free()
 	#print("Win: ", win)
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	create_lights()
+	#create_lights()
 	
-	light_up()
-	
-	for i in range(1, pow(size, 2)+1):
-		var button = get_node("Button"+str(i))
-		button.connect("pressed", self, "light", [i, false]) 
+	#light_up()
+	pass
+	#for i in range(1, pow(size, 2)+1):
+	#	var button = get_node("Button"+str(i))
+	#	button.connect("pressed", self, "light", [i, false]) 
