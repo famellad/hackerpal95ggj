@@ -9,7 +9,7 @@ var last_coord = Vector2(0, 0)
 var challenge_open = false
 
 var x_offset = 56 + 96
-var y_offset = 88
+var y_offset = 80
 
 var celu = preload("res://data/game/hackerexe/Celu.tscn")
 var pc = preload("res://data/game/hackerexe/PC.tscn")

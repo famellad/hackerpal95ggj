@@ -54,6 +54,7 @@ func victory():
 	mash_level = mash_threshold
 	draining = false
 	hackerexe.last_hacked()
+	queue_free()
 
 func _process(delta):
 	if randf() < 0.01:
