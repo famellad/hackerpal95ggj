@@ -4,7 +4,9 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 
-var x_offset = 56
+var last_coord = Vector2(0, 0)
+
+var x_offset = 56 + 96
 var y_offset = 88
 
 var celu = preload("res://data/game/hackerexe/Celu.tscn")
@@ -15,7 +17,7 @@ func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	randomize()
-	create_buttons(5, 7)
+	create_buttons(5, 5)
 	pass
 
 func create_buttons(rows, columns):
@@ -37,6 +39,9 @@ func create_buttons(rows, columns):
 			b.translate(Vector2(x, y))
 			#b.add_child(l)
 			add_child(b)
+
+func last_hacked():
+	get_node("but_tier" + str(last_coord.y) + "_" + str(last_coord.x)).infect()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.

@@ -11,11 +11,16 @@ var possible_scancodes = [65, 57, 72, 75]
 var diff_scancodes = []
 var mash_key_scancode = 75 # 75 es k
 
+var hackerexe
+
 var draining = true
 
 func _ready():
 	set_process_input(true)
 	set_difficulty("insane")
+
+func set_hackerexe(object):
+	hackerexe = object
 
 func set_difficulty(new_diff):
 	diff = new_diff
