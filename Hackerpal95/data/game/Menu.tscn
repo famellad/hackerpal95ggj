@@ -5,7 +5,7 @@
 [ext_resource path="res://data/game/Icono.gd" type="Script" id=3]
 [ext_resource path="res://data/game/hackerexe/Hackerexe.tscn" type="PackedScene" id=4]
 
-[node name="Menu" type="Node" index="0"]
+[node name="Menu" type="Node"]
 
 [node name="Fondo" type="Sprite" parent="." index="0"]
 
@@ -70,10 +70,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Hackerexe" type="Node2D" parent="." index="3" instance=ExtResource( 4 )]
+[node name="Hackerexe" parent="." index="3" instance=ExtResource( 4 )]
 
-visible = false
-position = Vector2( 306.084, 140.119 )
 _sections_unfolded = [ "Visibility" ]
 
 [connection signal="button_up" from="Icono" to="Icono" method="_on_Icono_button_up"]
