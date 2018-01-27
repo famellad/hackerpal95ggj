@@ -17,7 +17,7 @@ var draining = true
 
 func _ready():
 	set_process_input(true)
-	#set_difficulty("insane")
+	set_difficulty("insane")
 
 func set_hackerexe(object):
 	hackerexe = object
@@ -80,8 +80,10 @@ func _process(delta):
 	elif mash_key_scancode == KEY_K:
 		mash_string = "K"
 	
+	$Ventana/BarraCarga.set_level(mash_level/mash_threshold)
+	
 	# DEBUG
-	$debug.text = "MASH LEVEL : " + mash_string + " : " + str(mash_level)
+	#$debug.text = "MASH LEVEL : " + mash_string + " : " + str(mash_level)
 	
 func _input(event):
 	if (event is InputEventKey):
