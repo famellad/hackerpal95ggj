@@ -17,5 +17,5 @@ func _on_AnimationPlayer_animation_finished( anim_name ):
 
 #func _on_AnimationPlayer_animation_started( anim_name ):
 #	vega_sound.play(0.0)
-func play_Startup():
-	vega_sound.play(0.0)
+#func play_Startup():
+#	vega_sound.play(0.0)

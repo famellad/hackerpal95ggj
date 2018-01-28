@@ -3,12 +3,12 @@
 [ext_resource path="res://data/game/splash/SplashScreen.gd" type="Script" id=1]
 [ext_resource path="res://data/game/Menu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://data/game/splash/GGJ00_GameCredits_SplashScreen.jpg" type="Texture" id=3]
-[ext_resource path="res://data/SFX/sega theme.wav" type="AudioStream" id=4]
+[ext_resource path="res://data/game/splash/logo.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "fade_in_out"
-length = 4.0
+length = 5.5
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -18,24 +18,34 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 3, 3.2, 3.4, 3.6, 3.8, 4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0980392 ), Color( 1, 1, 1, 0.4 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.4 ), Color( 1, 1, 1, 0.2 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.0980392 ), Color( 1, 1, 1, 0.4 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.8 ), Color( 1, 1, 1, 0.6 ), Color( 1, 1, 1, 0.4 ), Color( 1, 1, 1, 0.2 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
+tracks/1/type = "value"
+tracks/1/path = NodePath("GGJ:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "play_Startup"
-} ]
+"times": PoolRealArray( 4, 4.5, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hackerpal95:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="SplashScreen" type="Control" index="0"]
@@ -66,8 +76,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 0.141176, 0.662745, 0.882353, 1 )
+_sections_unfolded = [ "Visibility" ]
 
-[node name="TextureRect" type="TextureRect" parent="." index="1"]
+[node name="GGJ" type="TextureRect" parent="." index="1"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -85,8 +96,26 @@ size_flags_vertical = 1
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
+_sections_unfolded = [ "Visibility" ]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="Hackerpal95" type="TextureRect" parent="." index="2"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+_sections_unfolded = [ "Visibility" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -96,14 +125,6 @@ playback_speed = 1.0
 anims/fade_in_out = SubResource( 1 )
 blend_times = [  ]
 autoplay = ""
-
-[node name="Vega" type="AudioStreamPlayer" parent="." index="3"]
-
-stream = ExtResource( 4 )
-volume_db = 0.0
-autoplay = false
-mix_target = 0
-bus = "Master"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
