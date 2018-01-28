@@ -8,7 +8,11 @@ var selected_texture = preload("res://data/game/iconoseleccionado.png")
 var normal_texture = preload("res://data/game/icono.png")
 var hackerexe = preload("res://data/game/hackerexe/Hackerexe.tscn")
 
+var menu_select = preload("res://data/SFX/Menu Select.wav")
+
 var hhp
+
+onready var sound = get_node("sound")
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -24,6 +28,8 @@ func _on_Icono_button_down():
 	icon = selected_texture
 
 func _on_Icono_button_up():
+	sound.set_stream(menu_select)
+	sound.play(0)
 	var h = hackerexe.instance()
 	h.name = "Hackerexe"
 	h.translate(Vector2(154, 113))
@@ -38,3 +44,7 @@ func _on_Icono_button_up():
 	hhp.show()
 	
 
+
+
+func _on_sound_finished():
+	sound.stop()

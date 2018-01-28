@@ -28,6 +28,7 @@ func activate():
 
 func infect():
 	infected = true
+	$NodeLabel.text = "xx.xx.xx.xx"
 	$Sprite.frame = 1
 	set_process(true)
 
