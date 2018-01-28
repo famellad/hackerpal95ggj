@@ -20,11 +20,6 @@ func _ready():
 	hhp = get_parent().get_node("HackerHP")
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
 func _on_Icono_button_down():
 	icon = selected_texture
 
@@ -43,9 +38,6 @@ func _on_Icono_button_up():
 	
 	hhp.set_time(40)
 	hhp.show()
-	
-
-
 
 func _on_sound_finished():
 	sound.stop()

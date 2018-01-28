@@ -30,24 +30,6 @@ func set_hackerexe(obj):
 	hackerexe = obj
 
 func leave():
-	# var popup = PopupPanel.new()
-	# popup.popup_centered()
-	# popup.margin_top = pixel
-	# popup.margin_bottom = pixel + 300
-	# popup.margin_left = pixel
-	# popup.margin_right = pixel + 400
-	# popup.visible = true
-	# add_child(popup)
-	# var text = Label.new()
-	# popup.add_child(text)
-	# text.margin_top = 100
-	# text.margin_left = 50
-	# text.align = 1
-	# if win:
-	#	text.text = "You've hacked " + map[size]
-		#hackerexe.last_hacked()
-	# else:
-	#	text.text = "You've been caught"
 	pass
 
 func set_diff(diff):
@@ -69,7 +51,6 @@ func set_diff(diff):
 		size = 6
 		sprite.set_offset(Vector2(246, 254))
 		sprite.set_texture(insane)
-	#print(sprite.get_texture())
 	create_lights()
 	light_up()
 
@@ -78,9 +59,6 @@ func create_lights():
 		pixel = 80
 	else:
 		pixel = 70
-	#sprite.margin_right = size*pixel + move_x
-	#sprite.margin_bottom = size*pixel + move_y
-	
 	# var barra = get_node("BarraCarga")
 	# barra.scale.x = size*pixel/240.0
 	
@@ -94,8 +72,8 @@ func create_lights():
 			button.margin_bottom = pixel*(j+1) - 10 + move_y
 			button.toggle_mode = true
 			button.pressed = true
-			button.texture_normal = load("res://data/game/Candado2/candado2cerrado.png")
-			button.texture_pressed = load("res://data/game/Candado2/candado2abierto.png") 
+			button.texture_normal = load("res://data/game/hackerexe/desafios/lights_out/Candado2/candado2cerrado.png")
+			button.texture_pressed = load("res://data/game/hackerexe/desafios/lights_out/Candado2/candado2abierto.png") 
 			add_child(button)
 
 func light_up():
@@ -117,14 +95,13 @@ func light_up():
 
 func light(n, action):
 	var button = get_node("Button"+str(n))
-	# print(n, " ", moves.find(n))
 	
 	if moves.find(n) != -1:
 		moves.erase(n)
 	else:
 		moves.append(n)
 	moves.sort()
-	#print(moves)
+
 	if action:
 		button.pressed = not button.pressed
 	elif not sound.playing:
@@ -133,62 +110,42 @@ func light(n, action):
 		sound.play(0)
 	if n%size != 0:
 		button = get_node("Button"+str(n+1))
-		# print(n+1, button.pressed)
 		button.pressed = not button.pressed
 	if n%size != 1:
 		button = get_node("Button"+str(n-1))
-		# print(n-1, button.pressed)
 		button.pressed = not button.pressed
 	if n < pow(size,2)-size+1:
 		button = get_node("Button"+str(n+size))
-		# print(n+size, button.pressed)
 		button.pressed = not button.pressed
 	if n > size:
 		button = get_node("Button"+str(n-size))
-		# print(n-size, button.pressed)
 		button.pressed = not button.pressed
 	
-	# var grid = []
 	var count = 0
 	var temp = true
 	for i in range(1, size+1):
-		# var line = []
 		for j in range(size):
 			button = get_node("Button"+str(i+size*j))
-			# line.append(button.pressed)
 			if not button.pressed:
 				temp = false
 			else:
 				count += 1
-		# grid.append(line)
-	# print_grid(grid)
 
 	if not action:
 		barra.set_level(float(count)/pow(size, 2))
-	# print(count)
 
 	if temp and not action:
 		win = true
 		hackerexe.last_hacked()
 		get_node(".").queue_free()
-	#print("Win: ", win)
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	#set_diff("insane")
-	#create_lights()
-	
-	#light_up()
-	#print("hola")
 	barra = barracarga.instance()
 	barra.name = "BarraCarga"
 	barra.position.y = 26
-	add_child(barra)
-	pass
-	#for i in range(1, pow(size, 2)+1):
-	#	var button = get_node("Button"+str(i))
-	#	button.connect("pressed", self, "light", [i, false]) 
+	add_child(barra) 
 
 func _on_sound_finished():
-	pass # replace with function body
+	sound.stop()

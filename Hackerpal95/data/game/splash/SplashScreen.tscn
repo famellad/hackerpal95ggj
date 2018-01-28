@@ -48,7 +48,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[node name="SplashScreen" type="Control"]
+[node name="SplashScreen" type="Control" index="0"]
 
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0

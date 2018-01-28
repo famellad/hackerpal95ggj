@@ -140,9 +140,7 @@ func _input(event):
 				match diff:
 					'hard': time += 0.1
 					'insane': time += 0.05
-					
-					
-				
+
 				# la idea principal es que cada vez que el hacker introduzca bien una letra
 				# esta desaparezca del label, quedando las letras siguientes a la palabra
 				

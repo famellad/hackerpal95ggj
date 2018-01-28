@@ -26,9 +26,6 @@ var downloader = preload("res://data/game/victoria/Downloader.tscn")
 var menu_select = preload("res://data/SFX/Menu Select.wav")
 var win_sound = preload("res://data/SFX/Windows 95 Startup Remake.wav")
 var exito = preload("res://data/SFX/Hackeo Exitoso.wav")
-var fallo = preload("res://data/SFX/Hackeo Fallido.wav")
-var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
-var tecleo = preload("res://data/SFX/Tecleo.wav")
 var startup = preload("res://data/SFX/Computer startup.wav")
 
 var ini_lvl_1 = preload("res://data/music/Inicio Level 1 - menu.wav")
@@ -58,7 +55,6 @@ func _ready():
 	randomize()
 	sound.set_stream(exito)
 	create_buttons(5, 5)
-	#tier_up()
 	unlock_tier0()
 	$Warnings.hide()
 	pass
@@ -90,22 +86,17 @@ func create_buttons(rows, columns):
 				b = pc.instance()
 			elif r == 2:
 				b = servi.instance()
-			#l = Label.new()
 			b.name = "but_tier" + str(j) + "_" + str(i)
 			b.coords = Vector2(i, j)
 			b.hackerexe = self
-			#l.name = "lab_tier" + str(j) + "_" + str(i)
 			var x = 96 * j + x_offset #+ (randi() % 10 - 5)
 			var y = 82 * i + y_offset #+ (randi() % 10 - 5)
 			b.translate(Vector2(x, y))
-			#b.add_child(l)
 			add_child(b)
 			yield(get_tree().create_timer(0.03), "timeout")
 
 func set_desktop(object):
 	desktop = object
-	#hhp = desktop.get_node("Centerer/HackerHP")
-	#print( str(hhp) )
 
 # Desbloquea el tier mas bajo, para comenzar a jugar
 func unlock_tier0():
@@ -163,7 +154,6 @@ func ultimate_victory():
 	desktop.win()
 
 func last_hacked():
-	# print("hola")
 	sound.set_stream(exito)
 	sound.play(0)
 	challenge_open = false
@@ -176,8 +166,6 @@ func last_hacked():
 		tier = 6
 		return
 
-	#print(str(last_coord.y))
-
 	var inf_node = get_node("but_tier" + str(last_coord.y) + "_" + str(last_coord.x))
 
 	if last_coord.y == 4:
@@ -189,12 +177,8 @@ func last_hacked():
 	elif last_coord.y == tier:
 		tier_up()
 		$Lines.add_route_node(inf_node.get_transform()[2])
-		#print(inf_node.get_transform()[2])
 
 	inf_node.infect()
-	
-	#print("da real tier: " + str(tier))
-
 
 func add_challenge_time():
 	match last_diff:
@@ -206,13 +190,10 @@ func open_challenge(diff):
 	if challenge_open:
 		return
 	
-	#print(diff)
 	sound.set_stream(menu_select)
 	sound.play(0)
 
 	challenge_open = true
-
-	#diff = "easy"
 
 	last_diff = diff
 
@@ -231,8 +212,6 @@ func open_challenge(diff):
 		c = lights_out.instance()
 		c.set_hackerexe(self)
 		c.set_diff(diff)
-		#c.position.x = 400
-		#c.position.y = 200
 		add_child(c)
 	elif rand == 2:
 		# Strings
@@ -258,8 +237,6 @@ func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	if not music.playing:
-		#print("tier: ", tier)
-		#print(music.stream, ini_lvl_2, lvl_2, " tier: ", tier)
 		if music.stream == ini_lvl_1:
 			music.set_stream(lvl_1)
 			music.play(0)
@@ -276,23 +253,18 @@ func _process(delta):
 			music.set_stream(lvl_5)
 			music.play(0)
 		elif tier == 0 or tier == 1:
-			#print(tier)
 			music.set_stream(ini_lvl_1)
 			music.play(0)
 		elif tier == 2:
-			#print(tier)
 			music.set_stream(ini_lvl_2)
 			music.play(0)
 		elif tier == 3:
-			#print(tier)
 			music.set_stream(ini_lvl_3)
 			music.play(0)
 		elif tier == 4:
-			#print(tier)
 			music.set_stream(ini_lvl_4)
 			music.play(0)
 		elif tier == 5:
-			#print(tier)
 			music.set_stream(ini_lvl_5)
 			music.play(0)
 	elif tier == 6:
