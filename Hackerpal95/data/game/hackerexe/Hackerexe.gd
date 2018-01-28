@@ -132,6 +132,7 @@ func ultimate_victory():
 	desktop.hide_hhp()
 	sound.set_stream(win_sound)
 	music.stop()
+	tier = 6
 	sound.play(0)
 
 func last_hacked():
