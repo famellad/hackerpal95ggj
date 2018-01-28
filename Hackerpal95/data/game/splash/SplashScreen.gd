@@ -11,7 +11,7 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished( anim_name ):
-	print('cambio de escena')
+	# print('cambio de escena')
 	get_tree().change_scene('res://data/game/Menu.tscn')
 
 
