@@ -13,7 +13,7 @@ var wordcount
 # Nodo donde se va  desplegar el texto que se debe transcribir
 onready var type_text = $Panel/VBoxContainer/Typetext
 onready var msg_text = $Panel/VBoxContainer/Message
-onready var debug_text = $Panel/Debug
+#onready var debug_text = $Panel/Debug
 
 onready var barra_carga = $Panel/VBoxContainer/Container/BarraCarga
 # Solo para debug este array sirve para luego selecccionar al azar una dificultad
@@ -95,7 +95,7 @@ func reset():
   
   # Establecemos la palabra secleccionada en el texto del label a transcribir
   type_text.text = word
-  debug_text.text = str(wordcount)
+  #debug_text.text = str(wordcount)
   # Set la barra de carga
   barra_carga.set_level(1)
   
