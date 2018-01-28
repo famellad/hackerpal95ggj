@@ -55,3 +55,12 @@ func _on_HelpHowTo_button_up():
 	n.translate(Vector2(143, 76))
 	n.read_from_file("HowTo.txt")
 	add_child(n)
+
+
+func _on_Start_Button_toggled( button_pressed ):
+	var menu = get_node("Centerer/Fondo/Start_Menu")
+	menu.visible = not menu.visible
+
+
+func _on_Turn_Off_pressed():
+	get_tree().quit()
