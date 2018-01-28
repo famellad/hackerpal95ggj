@@ -94,6 +94,14 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="music" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="button_up" from="Ventana/CloseButton" to="Ventana/CloseButton" method="_on_CloseButton_button_up"]
 
 [connection signal="finished" from="sound" to="." method="_on_sound_finished"]
