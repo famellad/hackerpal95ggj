@@ -11,7 +11,7 @@ var infected = false
 var coords = Vector2(0, 0)
 var hackerexe
 
-var diff = "hard"
+var diff = "insane"
 
 var active = false
 
