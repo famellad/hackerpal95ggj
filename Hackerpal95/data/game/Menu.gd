@@ -65,6 +65,12 @@ func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 
+func _input(event):
+	var blue_screen = get_node("Blue_Screen")
+	if (event is InputEventKey) and blue_screen.visible:
+		blue_screen.visible = false
+		sound.stop()
+
 
 func _on_sound_finished():
 	sound.stop()
