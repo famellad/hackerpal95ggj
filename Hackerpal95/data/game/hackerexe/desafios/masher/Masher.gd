@@ -15,12 +15,17 @@ var hack_visible = true
 var hack_timer = 0.5
 
 var hackerexe
+var sfx_node
 
 var draining = true
+
+var tecleo = preload("res://data/SFX/Tecleo.wav")
 
 var lines = []
 
 func _ready():
+	sfx_node = get_node("Ventana/SFX/Sound")
+	sfx_node.set_stream( tecleo )
 	set_process_input(true)
 	set_difficulty("insane")
 	get_lines()
@@ -64,6 +69,7 @@ func pick_scancodes(number):
 		diff_scancodes.pop_front()
 
 func victory():
+	sfx_node.stop()
 	mash_level = mash_threshold
 	draining = false
 	hackerexe.last_hacked()
@@ -111,6 +117,8 @@ func _process(delta):
 func successful_mash():
 	mash_level += 10
 	$Ventana/Code.text += "\n" + choose_random_line()
+	if not sfx_node.playing:
+		sfx_node.play(0)
 	#$Ventana/Code.scroll_following
 
 func choose_random_line():
@@ -121,3 +129,6 @@ func _input(event):
 		if event.scancode == mash_key_scancode && !event.echo && event.pressed: # Si es la tecla, si acaba de apretarla y si la esta apretando (no soltando)
 			successful_mash()
 		#$debug.text = str(event.scancode)
+
+func _on_Sound_finished():
+	sfx_node.stop()

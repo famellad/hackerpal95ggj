@@ -59,7 +59,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Ventana" type="Sprite" parent="." index="0"]
 
-position = Vector2( 249.24, 204.442 )
+position = Vector2( 240.28, 201.184 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
@@ -144,5 +144,17 @@ scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="SFX" type="Node" parent="Ventana" index="4"]
+
+[node name="Sound" type="AudioStreamPlayer" parent="Ventana/SFX" index="0"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="finished" from="Ventana/SFX/Sound" to="." method="_on_Sound_finished"]
 
 
