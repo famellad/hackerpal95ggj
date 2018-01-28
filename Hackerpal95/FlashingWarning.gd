@@ -7,6 +7,8 @@ var a_toggle_t
 var a_toggle_m = 0.15
 var fc = 0
 
+var colors = [Color(1, 0, 0), Color(1, 1, 0)]
+
 func _ready():
 	a_toggle_t = a_toggle_m
 	pass
@@ -16,6 +18,7 @@ func _process(delta):
 	if a_toggle_t < 0:
 		a_toggle_t = a_toggle_m
 		$Sprite.frame = ($Sprite.frame + 1) % 2
+
 		
 	if fc % 1 == 0:
 		$Sprite.translate(Vector2(randf() * 1 - 0.5, randf() * 1 - 0.5))
