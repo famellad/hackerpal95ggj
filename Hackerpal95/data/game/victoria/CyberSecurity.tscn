@@ -2,7 +2,7 @@
 
 [ext_resource path="res://data/game/victoria/cyber_security.png" type="Texture" id=1]
 
-[node name="CyberSecurity" type="Node2D" index="0"]
+[node name="CyberSecurity" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

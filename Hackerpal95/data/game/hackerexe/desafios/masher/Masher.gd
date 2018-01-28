@@ -65,11 +65,11 @@ func set_difficulty(new_diff):
 		selected_scancodes = possible_scancodes[choice]
 	elif diff == "hard":
 		mash_threshold = 220
-		mash_drain = 40
+		mash_drain = 35
 		selected_scancodes = possible_scancodes[choice]
 	elif diff == "insane":
 		mash_threshold = 350
-		mash_drain = 40
+		mash_drain = 35
 		selected_scancodes = insane_scancodes
 		$Ventana/MashMessage2.text = "V   I   R   U   S"
 
