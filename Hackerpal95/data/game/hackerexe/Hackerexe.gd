@@ -166,7 +166,7 @@ func open_challenge(diff):
   
   last_diff = diff
   
-  var rand = randi() % 3
+  var rand = 2#randi() % 3
   
   var c
   

@@ -10,7 +10,7 @@ func _ready():
   var screen = OS.get_screen_size()
   var centro_x = (screen.x - 1024) / 2
   var centro_y = (screen.y - 768) / 2
-  $Centerer.translate(Vector2(centro_x, centro_y))
+  #$Centerer.translate(Vector2(centro_x, centro_y))
   
   #$Centerer/Hackerexe.desktop = self
   $Centerer/HackerHP.desktop = self
