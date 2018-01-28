@@ -9,19 +9,19 @@ var start_time
 
 # Variable para almacenar la palabra que se Tomará al azar de la lista
 var word
-var wordcount
+var wordcount = 3
 var initial_wordcount
 # Nodo donde se va  desplegar el texto que se debe transcribir
 onready var type_text = $Panel/VBoxContainer/Typetext
 onready var msg_text = $Panel/VBoxContainer/Message
-#onready var debug_text = $Panel/Debug
+onready var pleft_text = $Panel/VBoxContainer/Left
 
 onready var barra_carga = $Panel/VBoxContainer/Container/BarraCarga
 # Solo para debug este array sirve para luego selecccionar al azar una dificultad
 #var diffarray = ['easy','medium','hard','insane']
 
 # Setter para establecer la dificultad del desafio
-var diff = 'medium' setget set_difficulty
+var diff = 'hard' setget set_difficulty
 func set_difficulty(newvalue):
 		diff=newvalue
 		
@@ -62,7 +62,10 @@ func fail():
 		state_desafio = State.Error # Cambiamos al estado error
 		type_text.text = 'Error!!!'  # Cambiamos el label a ERROR
 		yield(get_tree().create_timer(0.5), "timeout")
-		wordcount = initial_wordcount
+		
+		if diff == 'insane':
+			wordcount = initial_wordcount
+			
 		reset()
 		
 func reset():
@@ -80,17 +83,19 @@ func reset():
 	word = rand_elem(get_words(diff)).to_upper()
 	if word.length() == 0:
 		word = rand_elem(get_words(diff)).to_upper()
-	word = semi_shuffle(word)
+	
+	if diff == 'hard' or diff == 'insane':
+		word = semi_shuffle(word)
 	# Dependiendo de la dificultad se coloca un time determinado
 	match diff:
 		'easy': 
 			time = 5
 		'medium':
-			time = 4
+			time = 5
 		'hard':
-			time = 2
+			time = 5
 		'insane':
-			time = 1.5
+			time = 5
 		
 	start_time = time
 	
@@ -99,21 +104,22 @@ func reset():
 	
 	# Establecemos la palabra secleccionada en el texto del label a transcribir
 	type_text.text = word
-	#debug_text.text = str(wordcount)
+	pleft_text.text = 'Passwords Left: ' + str(wordcount)
 	# Set la barra de carga
 	barra_carga.set_level(1)
 	
 func _ready():
-	match diff:
-		'easy': 
-			wordcount = 3
-		'medium':
-			wordcount = 4
-		'hard':
-			wordcount = 5
-		'insane':
-			wordcount = 6
+#	match diff:
+#		'easy': 
+#			wordcount = 3
+#		'medium':
+#			wordcount = 3
+#		'hard':
+#			wordcount = 3
+#		'insane':
+#			wordcount = 3
 	initial_wordcount = wordcount
+	pleft_text.text = 'Passwords Left: ' + str(wordcount)
 	reset()
 
 func _input(event):
@@ -131,14 +137,14 @@ func _input(event):
 				# Si la primera letra de la palabra es la tecla que presionamos
 				word.erase(0,1) # Borramos la primera letra
 				type_text.text = word # y cambiamos el label
-				
+				time += 0.1
 				# la idea principal es que cada vez que el hacker introduzca bien una letra
 				# esta desaparezca del label, quedando las letras siguientes a la palabra
 				
 				if(word ==''):
 					wordcount -= 1
-					msg_text.text = 'Now this Word:'
-					#debug_text.text = str(wordcount)
+					msg_text.text = 'Now this Password:'
+					pleft_text.text = 'Passwords Left: ' + str(wordcount)
 					if wordcount == 0:
 						# ya para cuando introduzca todas las letras correctas y el string esté vacio
 							victory()
