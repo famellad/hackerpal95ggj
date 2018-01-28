@@ -1,40 +1,148 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://data/game/hackerexe/desafios/masher/Masher.gd" type="Script" id=1]
 [ext_resource path="res://data/game/hackerexe/desafios/masher/barra_smasher.png" type="Texture" id=2]
 [ext_resource path="res://data/game/barra_carga/BarraCarga.tscn" type="PackedScene" id=3]
 
-[node name="Masher" type="Node2D"]
+[sub_resource type="DynamicFontData" id=1]
+
+font_path = "res://data/fonts/MunroSmall.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 23
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 1 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=3]
+
+font_path = "res://data/fonts/aerxtabs_memesbruh03.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 48
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=5]
+
+font_path = "res://data/fonts/aerxtabs_memesbruh03.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 0
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFontData" id=7]
+
+font_path = "res://data/fonts/aerxtabs_memesbruh03.ttf"
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = SubResource( 7 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Masher" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Ventana" type="Sprite" parent="." index="0"]
 
-position = Vector2( 41.132, 145.952 )
+position = Vector2( 249.24, 204.442 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="BarraCarga" parent="Ventana" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( -9, 135 )
+position = Vector2( 173, 126 )
 rotation = 4.71239
 
-[node name="debug" type="Label" parent="." index="1"]
+[node name="MashMessage" type="Label" parent="Ventana" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 78.0
-margin_bottom = 14.0
+margin_left = -225.132
+margin_top = -161.952
+margin_right = 272.868
+margin_bottom = -130.952
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "MASH LEVEL"
+custom_fonts/font = SubResource( 2 )
+text = "MASH THESE LETTERS AS FAST AS YOU CAN!"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="MashMessage2" type="Label" parent="Ventana" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -298.0
+margin_top = -138.0
+margin_right = 206.0
+margin_bottom = -97.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "H    A    C    K"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Code" type="RichTextLabel" parent="Ventana" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -222.0
+margin_top = -92.0
+margin_right = 122.0
+margin_bottom = 176.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/mono_font = SubResource( 6 )
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 0, 1, 0, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "/* BEGIN HACKING INJECTION PROCEDURE*/"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "custom_fonts" ]
 
 
