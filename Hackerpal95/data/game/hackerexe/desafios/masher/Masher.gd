@@ -27,7 +27,7 @@ func _ready():
 	sfx_node = get_node("Ventana/SFX/Sound")
 	sfx_node.set_stream( tecleo )
 	set_process_input(true)
-	set_difficulty("insane")
+	#set_difficulty("insane")
 	get_lines()
 	$Ventana/Code.scroll_following = true
 
@@ -44,19 +44,19 @@ func set_difficulty(new_diff):
 	diff = new_diff
 	if diff == "easy":
 		mash_threshold = 100
-		mash_drain = 15
+		mash_drain = 14
 		#pick_scancodes(4)
 	elif diff == "medium":
 		mash_threshold = 150
-		mash_drain = 25
+		mash_drain = 23
 		#pick_scancodes(4)
 	elif diff == "hard":
 		mash_threshold = 200
-		mash_drain = 30
+		mash_drain = 28
 		#pick_scancodes(3)
 	elif diff == "insane":
-		mash_threshold = 250
-		mash_drain = 40
+		mash_threshold = 300
+		mash_drain = 50
 		#pick_scancodes(4)
 
 func pick_scancodes(number):
