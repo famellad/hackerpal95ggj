@@ -11,7 +11,8 @@ config_version=3
 [application]
 
 config/name="Hackerpal95"
-run/main_scene="res://data/game/Menu.tscn"
+run/main_scene="res://data/game/splash/SplashScreen.tscn"
+boot_splash/image="res://data/game/splash/logo.png"
 config/icon="res://icon.png"
 
 [display]
