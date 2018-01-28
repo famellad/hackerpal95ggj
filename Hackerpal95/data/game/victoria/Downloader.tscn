@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://data/game/victoria/Downloader.gd" type="Script" id=1]
 [ext_resource path="res://data/game/victoria/ventanasecretDL.png" type="Texture" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://data/game/victoria/CyberSecurity.tscn" type="PackedScene" id=6]
 [ext_resource path="res://data/game/victoria/TrueShape.tscn" type="PackedScene" id=7]
 [ext_resource path="res://data/game/help/HelpWindow.tscn" type="PackedScene" id=8]
+[ext_resource path="res://data/game/victoria/BSB.tscn" type="PackedScene" id=9]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 position = Vector2( 500.579, 420.187 )
 script = ExtResource( 1 )
@@ -25,22 +26,26 @@ position = Vector2( -130.452, 4.8371 )
 
 [node name="FakeLanding" parent="." index="1" instance=ExtResource( 4 )]
 
-position = Vector2( -139.511, -250.223 )
+position = Vector2( -81.0545, -250.223 )
 
 [node name="FreePalmPilot" parent="." index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 270.689, 98.5735 )
+position = Vector2( 300.752, 60.1592 )
 
 [node name="CyberSecurity" parent="." index="3" instance=ExtResource( 6 )]
 
-position = Vector2( -286.243, -56.71 )
+position = Vector2( -252.839, -58.3802 )
 
 [node name="TrueShape" parent="." index="4" instance=ExtResource( 7 )]
 
-position = Vector2( 204.656, -155.363 )
+position = Vector2( 209.667, -170.395 )
 
 [node name="HelpWindow" parent="." index="5" instance=ExtResource( 8 )]
 
-position = Vector2( -263.761, -110.322 )
+position = Vector2( -58.3278, -98.6307 )
+
+[node name="BSB" parent="." index="6" instance=ExtResource( 9 )]
+
+position = Vector2( -210.494, 72.9584 )
 
 
