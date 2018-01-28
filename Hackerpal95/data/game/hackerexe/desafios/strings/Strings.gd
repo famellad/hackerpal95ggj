@@ -63,7 +63,7 @@ func fail():
 		type_text.text = 'Error!!!'  # Cambiamos el label a ERROR
 		yield(get_tree().create_timer(0.5), "timeout")
 		
-		if diff == 'insane':
+		if diff == 'insane' or diff == 'hard':
 			wordcount = initial_wordcount
 			
 		reset()
@@ -93,9 +93,9 @@ func reset():
 		'medium':
 			time = 5
 		'hard':
-			time = 5
+			time = 4
 		'insane':
-			time = 5
+			time = 3.5
 		
 	start_time = time
 	
