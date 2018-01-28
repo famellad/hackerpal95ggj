@@ -33,7 +33,7 @@ func _ready():
 	sfx_node = get_node("Ventana/SFX/Sound")
 	sfx_node.set_stream( tecleo )
 	set_process_input(true)
-	set_difficulty("hard")
+	#set_difficulty("easy")
 	get_lines()
 	$Ventana/Code.scroll_following = true
 	
