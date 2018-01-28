@@ -13,6 +13,8 @@ var wallpapers = [preload("res://data/game/wallpaper/plain.png"),\
 var lose_sound = preload("res://data/SFX/Police.wav")
 var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
 var start = preload("res://data/SFX/sega theme.wav")
+var songs = preload("res://data/music/Theme song (Vaporwave Remix).wav")
+
 onready var sound = get_node("sound")
 
 func _ready():
@@ -100,4 +102,9 @@ func _on_Turn_Off_pressed():
 func _on_Icono_pressed():
 	randomize()
 	sound.set_stream(clicks[randi()%3])
+	sound.play(0)
+
+
+func _on_CD_pressed():
+	sound.set_stream(songs)
 	sound.play(0)
