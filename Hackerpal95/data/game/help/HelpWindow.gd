@@ -5,6 +5,7 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
+	#read_from_file("Chili.txt")
 	pass
 
 func read_from_file( filename ):
