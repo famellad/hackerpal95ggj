@@ -13,6 +13,9 @@ var diff = "insane"
 func _ready():
 	set_process(false)
 	pass
+	
+func activate():
+	pass
 
 func infect():
 	infected = true

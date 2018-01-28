@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://data/game/hackerexe/Servidor.gd" type="Script" id=1]
+[ext_resource path="res://data/game/hackerexe/Basa.gd" type="Script" id=1]
 [ext_resource path="res://data/game/hackerexe/icons/basa.png" type="Texture" id=2]
 [ext_resource path="res://data/game/hackerexe/NodeLabel.gd" type="Script" id=3]
 [ext_resource path="res://data/game/hackerexe/ChallengeButton.gd" type="Script" id=4]
@@ -17,7 +17,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Servidor" type="Node2D" index="0"]
+[node name="Basa" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
