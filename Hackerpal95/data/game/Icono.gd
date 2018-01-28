@@ -9,6 +9,7 @@ var normal_texture = preload("res://data/game/icono.png")
 var hackerexe = preload("res://data/game/hackerexe/Hackerexe.tscn")
 
 var menu_select = preload("res://data/SFX/Menu Select.wav")
+var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
 
 var hhp
 
