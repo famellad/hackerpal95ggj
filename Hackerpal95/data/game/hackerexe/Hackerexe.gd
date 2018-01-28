@@ -119,17 +119,34 @@ func unlock_tier0():
 func tier_up():
 	tier += 1
 	music.stop()
-
+	
+	var unlocks
+	
+	match last_diff:
+		"easy"   : unlocks = 1
+		"medium" : unlocks = 2
+		"hard"   : unlocks = 3
+	
+	
 	for i in range(0, 5):
 		get_node("but_tier" + str(tier - 1) + "_" + str(i)).activate()
-
-
-	#tier_beaten = 0
-
+	
 	var rand = randi() % 5
-
-	get_node("but_tier" + str(tier) + "_" + str(rand)).activate()
-
+	
+	var active = true
+	
+	for i in range(unlocks):
+		while true:
+			rand = randi() % 5
+			var node = get_node("but_tier" + str(tier) + "_" + str(rand))
+			active = node.active
+			if active:
+				continue
+			else:
+				node.activate()
+				break
+		
+	
 	new_title()
 
 func ultimate_victory():
