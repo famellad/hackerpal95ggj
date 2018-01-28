@@ -36,7 +36,10 @@ func lose():
 	sound.play(0)
 	var blue_screen = get_node("Blue_Screen")
 	blue_screen.visible = true
-	
+
+func win():
+	$Centerer/Icono.disabled = false
+	$Centerer/Hackerexe.queue_free()
 
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
