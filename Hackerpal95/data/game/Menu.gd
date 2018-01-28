@@ -16,6 +16,7 @@ var start = preload("res://data/SFX/sega theme.wav")
 var songs = preload("res://data/music/Theme song (Vaporwave Remix).wav")
 
 onready var sound = get_node("sound")
+onready var vega_sound = $Vega
 
 func _ready():
 	#$Centerer/Hackerexe.hide()
@@ -30,6 +31,7 @@ func _ready():
 	#sound.play(0)
 	
 	Input.set_custom_mouse_cursor( cursor )
+	vega_sound.play(0)
 	
 func enable_button():
 	$Centerer/Icono.disabled = false
@@ -108,3 +110,7 @@ func _on_Icono_pressed():
 func _on_CD_pressed():
 	sound.set_stream(songs)
 	sound.play(0)
+
+
+func _on_Vega_finished():
+	vega_sound.stop()

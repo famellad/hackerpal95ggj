@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://data/game/Menu.gd" type="Script" id=1]
 [ext_resource path="res://data/game/derrota/pantallazo_azul.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://data/game/conexion.png" type="Texture" id=14]
 [ext_resource path="res://data/game/Darknet.gd" type="Script" id=15]
 [ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=16]
+[ext_resource path="res://data/SFX/sega theme.wav" type="AudioStream" id=17]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -55,6 +56,7 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Visibility"
 
 [node name="Centerer" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Fondo" type="Sprite" parent="Centerer" index="0"]
@@ -753,6 +755,14 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="Vega" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 17 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="toggled" from="Centerer/Fondo/Start_Button" to="." method="_on_Start_Button_toggled"]
 
 [connection signal="pressed" from="Centerer/Fondo/Start_Menu/Turn_Off" to="." method="_on_Turn_Off_pressed"]
@@ -778,5 +788,7 @@ bus = "Master"
 [connection signal="finished" from="Centerer/HackerHP/sound" to="Centerer/HackerHP" method="_on_sound_finished"]
 
 [connection signal="finished" from="sound" to="." method="_on_sound_finished"]
+
+[connection signal="finished" from="Vega" to="." method="_on_Vega_finished"]
 
 
