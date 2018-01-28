@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://data/game/Menu.gd" type="Script" id=1]
 [ext_resource path="res://data/game/derrota/pantallazo_azul.png" type="Texture" id=2]
@@ -11,10 +11,11 @@
 [ext_resource path="res://data/game/white.png" type="Texture" id=9]
 [ext_resource path="res://data/game/carpetas.png" type="Texture" id=10]
 [ext_resource path="res://data/game/WallpaperChange.gd" type="Script" id=11]
-[ext_resource path="res://data/game/ayuda.png" type="Texture" id=12]
-[ext_resource path="res://data/game/conexion.png" type="Texture" id=13]
-[ext_resource path="res://data/game/Darknet.gd" type="Script" id=14]
-[ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=15]
+[ext_resource path="res://data/game/cd.png" type="Texture" id=12]
+[ext_resource path="res://data/game/ayuda.png" type="Texture" id=13]
+[ext_resource path="res://data/game/conexion.png" type="Texture" id=14]
+[ext_resource path="res://data/game/Darknet.gd" type="Script" id=15]
+[ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -499,7 +500,63 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HelpMission" type="Button" parent="Centerer" index="8"]
+[node name="CD" type="Button" parent="Centerer" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 869.0
+margin_top = 137.0
+margin_right = 953.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+icon = ExtResource( 12 )
+flat = true
+align = 1
+script = ExtResource( 11 )
+
+[node name="white6" type="Sprite" parent="Centerer/CD" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 42.9603, 92.6703 )
+scale = Vector2( 1.10709, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/CD" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = 80.0
+margin_right = 86.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CDROM"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="HelpMission" type="Button" parent="Centerer" index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -518,7 +575,7 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 12 )
+icon = ExtResource( 13 )
 flat = true
 align = 1
 
@@ -554,7 +611,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HelpHowTo" type="Button" parent="Centerer" index="9"]
+[node name="HelpHowTo" type="Button" parent="Centerer" index="10"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -573,7 +630,7 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 12 )
+icon = ExtResource( 13 )
 flat = true
 align = 1
 
@@ -609,7 +666,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Darknet" type="Button" parent="Centerer" index="10"]
+[node name="Darknet" type="Button" parent="Centerer" index="11"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -628,10 +685,10 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 13 )
+icon = ExtResource( 14 )
 flat = true
 align = 1
-script = ExtResource( 14 )
+script = ExtResource( 15 )
 
 [node name="white8" type="Sprite" parent="Centerer/Darknet" index="0"]
 
@@ -673,7 +730,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="HackerHP" parent="Centerer" index="11" instance=ExtResource( 15 )]
+[node name="HackerHP" parent="Centerer" index="12" instance=ExtResource( 16 )]
 
 editor/display_folded = true
 visible = false
@@ -707,6 +764,8 @@ bus = "Master"
 [connection signal="finished" from="Centerer/Icono/sound" to="Centerer/Icono" method="_on_sound_finished"]
 
 [connection signal="button_up" from="Centerer/WallpaperChange" to="Centerer/WallpaperChange" method="_on_WallpaperChange_button_up"]
+
+[connection signal="pressed" from="Centerer/CD" to="." method="_on_CD_pressed"]
 
 [connection signal="button_up" from="Centerer/HelpMission" to="." method="_on_HelpMission_button_up"]
 
