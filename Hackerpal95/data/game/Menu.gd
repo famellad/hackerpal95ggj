@@ -16,6 +16,17 @@ func _ready():
 	
 func enable_button():
 	$Centerer/Icono.disabled = false
+	
+func add_time( amount ):
+	$Centerer/HackerHP.add_time(amount)
+
+func hide_hhp():
+	$Centerer/HackerHP.hide()
+	
+func lose():
+	$Centerer/Icono.disabled = false
+	$Centerer/Hackerexe.queue_free()
+	# PANTALLA Y SONIDO DE PERDER
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.

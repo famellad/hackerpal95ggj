@@ -5,6 +5,7 @@ extends Node2D
 # var b = "textvar"
 
 var last_coord = Vector2(0, 0)
+var last_diff = ""
 
 var challenge_open = false
 
@@ -25,6 +26,7 @@ var tier = 0
 var tier_beaten = 0
 
 var desktop
+var hhp
 
 func _ready():
 	# Called every time the node is added to the scene.
@@ -41,6 +43,7 @@ func create_buttons(rows, columns):
 	var local_x = x_offset - 96
 	var local_y = 82 * 2 + y_offset
 	local.translate(Vector2(local_x, local_y))
+	$Lines.add_route_node(Vector2(local_x, local_y))
 	add_child(local)
 	
 	var basa = sbasa.instance()
@@ -52,8 +55,8 @@ func create_buttons(rows, columns):
 	add_child(basa)
 	
 	var b
-	for i in range(0, rows):
-		for j in range(0, columns):
+	for j in range(0, rows):
+		for i in range(0, columns):
 			var r = randi() % 3
 			if r == 0:
 				b = celu.instance()
@@ -71,12 +74,16 @@ func create_buttons(rows, columns):
 			b.translate(Vector2(x, y))
 			#b.add_child(l)
 			add_child(b)
+			yield(get_tree().create_timer(0.03), "timeout")
 
 func set_desktop(object):
 	desktop = object
+	#hhp = desktop.get_node("Centerer/HackerHP")
+	#print( str(hhp) )
 
 # Desbloquea el tier mas bajo, para comenzar a jugar
 func unlock_tier0():
+	yield(get_tree().create_timer(1.5), "timeout")
 	for i in range(0, 5):
 		get_node("but_tier" + str(0) + "_" + str(i)).activate()
 
@@ -98,33 +105,51 @@ func tier_up():
 
 func ultimate_victory():
 	# Mostrar la verdad
+	desktop.hide_hhp()
 	pass
 
 func last_hacked():
 	challenge_open = false
+	
+	add_challenge_time()
+	
 	if last_coord.y == 100:
 		ultimate_victory()
+		$Lines.add_route_node(Vector2(96 * 5 + x_offset, 82 * 2 + y_offset))
 		return
 	
-	print(str(last_coord.y))
+	#print(str(last_coord.y))
+	
+	var inf_node = get_node("but_tier" + str(last_coord.y) + "_" + str(last_coord.x))
 	
 	if last_coord.y == 4:
 		$basa.activate()
 		tier += 1
 		new_title()
+		$Lines.add_route_node(inf_node.get_transform()[2])
 	elif last_coord.y == tier:
 		tier_up()
+		$Lines.add_route_node(inf_node.get_transform()[2])
+		#print(inf_node.get_transform()[2])
 	
-	get_node("but_tier" + str(last_coord.y) + "_" + str(last_coord.x)).infect()
-	
-	
+	inf_node.infect()
+
+
+func add_challenge_time():
+	match last_diff:
+		"easy" : desktop.add_time(5)
+		"medium" : desktop.add_time(8)
+		"hard" : desktop.add_time(14)
+
 func open_challenge(diff):
 	if challenge_open:
 		return
 	
 	challenge_open = true
 	
-	var rand = 1#randi() % 3
+	last_diff = diff
+	
+	var rand = randi() % 3
 	
 	var c
 	
