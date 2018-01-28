@@ -1,6 +1,6 @@
 extends Sprite
 
-var size = 3
+var size = 4
 var pixel = 70
 var move_x = 15
 var move_y = 22 + 26
@@ -10,6 +10,9 @@ var map = {3:"a cellphone", 4:"a PC", 6:"a server", 8:"BASA"}
 var difficulty = "easy"
 var barracarga = preload("res://data/game/barra_carga/BarraCarga.tscn")
 var easy = load("res://data/game/hackerexe/desafios/lights_out/nivel_1.png")
+var medium = load("res://data/game/hackerexe/desafios/lights_out/nivel_2.png")
+var hard = load("res://data/game/hackerexe/desafios/lights_out/nivel_3.png")
+var insane = load("res://data/game/hackerexe/desafios/lights_out/nivel_4.png")
 var barra
 var hackerexe
 
@@ -45,15 +48,25 @@ func leave():
 	pass
 
 func set_diff(diff):
+	var sprite = get_node(".")
 	difficulty = diff
 	if diff == "easy":
 		size = 3
+		sprite.set_offset(Vector2(140, 148))
+		sprite.set_texture(easy)
 	elif diff == "medium":
 		size = 4
+		sprite.set_offset(Vector2(166, 174))
+		sprite.set_texture(medium)
 	elif diff == "hard":
 		size = 5
+		sprite.set_offset(Vector2(206, 214))
+		sprite.set_texture(hard)
 	elif diff == "insane":
 		size = 6
+		sprite.set_offset(Vector2(246, 254))
+		sprite.set_texture(insane)
+	#print(sprite.get_texture())
 	create_lights()
 	light_up()
 
@@ -62,9 +75,6 @@ func create_lights():
 		pixel = 80
 	else:
 		pixel = 70
-	var sprite = get_node(".")
-	sprite.texture = easy
-	print(sprite.texture)
 	#sprite.margin_right = size*pixel + move_x
 	#sprite.margin_bottom = size*pixel + move_y
 	
@@ -159,10 +169,11 @@ func light(n, action):
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	#set_diff("insane")
 	#create_lights()
 	
 	#light_up()
-	print("hola")
+	#print("hola")
 	barra = barracarga.instance()
 	barra.name = "BarraCarga"
 	barra.position.y = 26
