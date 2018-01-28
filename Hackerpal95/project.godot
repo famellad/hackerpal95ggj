@@ -17,9 +17,11 @@ config/icon="res://icon.png"
 [display]
 
 window/size/height=768
+window/size/resizable=false
 mouse_cursor/custom_image="res://data/game/puntero.png"
 window/stretch/aspect="keep"
 
 [rendering]
 
+environment/default_clear_color=Color( 0.160156, 0.160156, 0.160156, 1 )
 environment/default_environment="res://default_env.tres"

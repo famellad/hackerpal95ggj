@@ -9,4 +9,14 @@ offset = Vector2( 140, 148 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Offset" ]
 
+[node name="sound" type="AudioStreamPlayer" parent="." index="0"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="finished" from="sound" to="." method="_on_sound_finished"]
+
 

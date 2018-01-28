@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://data/game/hackerexe/Hackerexe.gd" type="Script" id=1]
 [ext_resource path="res://data/game/hackerexe/ventana_principal.png" type="Texture" id=2]
 [ext_resource path="res://data/game/hackerexe/boton_cerrar.png" type="Texture" id=3]
 [ext_resource path="res://data/game/hackerexe/CloseButton.gd" type="Script" id=4]
+[ext_resource path="res://data/game/hackerexe/Lines.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -17,7 +18,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -75,6 +76,26 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="Lines" type="Line2D" parent="." index="2"]
+
+points = PoolVector2Array(  )
+width = 10.0
+default_color = Color( 0.4, 0.5, 1, 1 )
+texture_mode = -1110917834
+sharp_limit = 2.0
+round_precision = 8
+script = ExtResource( 5 )
+
+[node name="sound" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [connection signal="button_up" from="Ventana/CloseButton" to="Ventana/CloseButton" method="_on_CloseButton_button_up"]
+
+[connection signal="finished" from="sound" to="." method="_on_sound_finished"]
 
 

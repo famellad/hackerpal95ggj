@@ -10,17 +10,18 @@ var start_time
 # Variable para almacenar la palabra que se Tomará al azar de la lista
 var word
 var wordcount
+var initial_wordcount
 # Nodo donde se va  desplegar el texto que se debe transcribir
 onready var type_text = $Panel/VBoxContainer/Typetext
 onready var msg_text = $Panel/VBoxContainer/Message
-onready var debug_text = $Panel/Debug
+#onready var debug_text = $Panel/Debug
 
 onready var barra_carga = $Panel/VBoxContainer/Container/BarraCarga
 # Solo para debug este array sirve para luego selecccionar al azar una dificultad
 #var diffarray = ['easy','medium','hard','insane']
 
 # Setter para establecer la dificultad del desafio
-var diff = 'easy' setget set_difficulty
+var diff = 'medium' setget set_difficulty
 func set_difficulty(newvalue):
     diff=newvalue
     
@@ -54,13 +55,14 @@ func victory():
     state_desafio = State.Transmitted # Cambiamos el estado del desafio
     msg_text.text = 'TRANSMITTED!!' # Ya fue resuelto el desafio
     yield(get_tree().create_timer(0.5), "timeout")
-    #hackerexe.last_hacked()
+    hackerexe.last_hacked()
     queue_free()
 
 func fail():
     state_desafio = State.Error # Cambiamos al estado error
     type_text.text = 'Error!!!'  # Cambiamos el label a ERROR
     yield(get_tree().create_timer(0.5), "timeout")
+    wordcount = initial_wordcount
     reset()
     
 func reset():
@@ -76,13 +78,15 @@ func reset():
   
   # Asignamos una palabra al azar dependiendo de la dificultad
   word = rand_elem(get_words(diff)).to_upper()
+  if word.length() == 0:
+    word = rand_elem(get_words(diff)).to_upper()
   word = semi_shuffle(word)
   # Dependiendo de la dificultad se coloca un time determinado
   match diff:
     'easy': 
-      time = 3
+      time = 5
     'medium':
-      time = 2.5
+      time = 4
     'hard':
       time = 2
     'insane':
@@ -95,7 +99,7 @@ func reset():
   
   # Establecemos la palabra secleccionada en el texto del label a transcribir
   type_text.text = word
-  debug_text.text = str(wordcount)
+  #debug_text.text = str(wordcount)
   # Set la barra de carga
   barra_carga.set_level(1)
   
@@ -109,7 +113,7 @@ func _ready():
       wordcount = 5
     'insane':
       wordcount = 6
-    
+  initial_wordcount = wordcount
   reset()
 
 func _input(event):

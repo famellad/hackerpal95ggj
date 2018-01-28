@@ -13,9 +13,12 @@ var easy = load("res://data/game/hackerexe/desafios/lights_out/nivel_1.png")
 var medium = load("res://data/game/hackerexe/desafios/lights_out/nivel_2.png")
 var hard = load("res://data/game/hackerexe/desafios/lights_out/nivel_3.png")
 var insane = load("res://data/game/hackerexe/desafios/lights_out/nivel_4.png")
+
+var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
+
 var barra
 var hackerexe
-
+onready var sound = get_node("sound")
 
 func print_grid(grid):
 	var temp = ""
@@ -124,6 +127,10 @@ func light(n, action):
 	print(moves)
 	if action:
 		button.pressed = not button.pressed
+	elif not sound.playing:
+		randomize()
+		sound.stream = clicks[randi()%3]
+		sound.play(0)
 	if n%size != 0:
 		button = get_node("Button"+str(n+1))
 		# print(n+1, button.pressed)
@@ -182,3 +189,6 @@ func _ready():
 	#for i in range(1, pow(size, 2)+1):
 	#	var button = get_node("Button"+str(i))
 	#	button.connect("pressed", self, "light", [i, false]) 
+
+func _on_sound_finished():
+	pass # replace with function body
