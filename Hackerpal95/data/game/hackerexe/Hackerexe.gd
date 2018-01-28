@@ -212,11 +212,11 @@ func open_challenge(diff):
 
 	challenge_open = true
 
-	diff = "easy"
+	#diff = "easy"
 
 	last_diff = diff
 
-	var rand = 1#randi() % 3
+	var rand = randi() % 3
 
 	var c
 
