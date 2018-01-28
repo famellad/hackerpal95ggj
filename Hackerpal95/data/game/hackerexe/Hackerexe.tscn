@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://data/game/hackerexe/Hackerexe.gd" type="Script" id=1]
 [ext_resource path="res://data/game/hackerexe/ventana_principal.png" type="Texture" id=2]
 [ext_resource path="res://data/game/hackerexe/boton_cerrar.png" type="Texture" id=3]
 [ext_resource path="res://data/game/hackerexe/CloseButton.gd" type="Script" id=4]
 [ext_resource path="res://data/game/hackerexe/Lines.gd" type="Script" id=5]
-[ext_resource path="res://data/game/hackerexe/desafios/FlashingWarning.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -19,7 +18,7 @@ use_filter = false
 font_data = SubResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -102,42 +101,6 @@ volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-
-[node name="Warnings" type="Node2D" parent="." index="5"]
-
-editor/display_folded = true
-
-[node name="FlashingWarning" parent="Warnings" index="0" instance=ExtResource( 6 )]
-
-position = Vector2( -55.6408, -57.0087 )
-
-[node name="FlashingWarning2" parent="Warnings" index="1" instance=ExtResource( 6 )]
-
-position = Vector2( 757.122, -60.6919 )
-
-[node name="FlashingWarning3" parent="Warnings" index="2" instance=ExtResource( 6 )]
-
-position = Vector2( -53.1853, 518.8 )
-
-[node name="FlashingWarning4" parent="Warnings" index="3" instance=ExtResource( 6 )]
-
-position = Vector2( 754.666, 517.573 )
-
-[node name="FlashingWarning5" parent="Warnings" index="4" instance=ExtResource( 6 )]
-
-position = Vector2( -70.3736, 232.737 )
-
-[node name="FlashingWarning6" parent="Warnings" index="5" instance=ExtResource( 6 )]
-
-position = Vector2( 762.032, 226.599 )
-
-[node name="FlashingWarning7" parent="Warnings" index="6" instance=ExtResource( 6 )]
-
-position = Vector2( 345.829, 511.434 )
-
-[node name="FlashingWarning8" parent="Warnings" index="7" instance=ExtResource( 6 )]
-
-position = Vector2( 351.968, -65.6029 )
 
 [connection signal="button_up" from="Ventana/CloseButton" to="Ventana/CloseButton" method="_on_CloseButton_button_up"]
 

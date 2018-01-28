@@ -5,7 +5,7 @@ var notepad = preload("res://data/game/help/HelpWindow.tscn")
 
 var lose_sound = preload("res://data/SFX/Police.wav")
 var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
-
+var start = preload("res://data/SFX/sega theme.wav")
 onready var sound = get_node("sound")
 
 func _ready():
@@ -17,6 +17,8 @@ func _ready():
 	
 	#$Centerer/Hackerexe.desktop = self
 	$Centerer/HackerHP.desktop = self
+	sound.set_stream(start)
+	sound.play(0)
 	
 	Input.set_custom_mouse_cursor( cursor )
 	
