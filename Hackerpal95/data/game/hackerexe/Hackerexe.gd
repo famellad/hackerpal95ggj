@@ -93,6 +93,8 @@ func tier_up():
 	var rand = randi() % 5
 	
 	get_node("but_tier" + str(tier) + "_" + str(rand)).activate()
+	
+	new_title()
 
 func ultimate_victory():
 	# Mostrar la verdad
@@ -109,6 +111,7 @@ func last_hacked():
 	if last_coord.y == 4:
 		$basa.activate()
 		tier += 1
+		new_title()
 	elif last_coord.y == tier:
 		tier_up()
 	

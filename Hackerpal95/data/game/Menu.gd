@@ -10,6 +10,7 @@ func _ready():
 	$Centerer.translate(Vector2(centro_x, centro_y))
 	
 	#$Centerer/Hackerexe.desktop = self
+	$Centerer/HackerHP.desktop = self
 	
 	Input.set_custom_mouse_cursor( cursor )
 	

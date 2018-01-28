@@ -2,7 +2,7 @@
 
 [ext_resource path="res://data/game/Menu.gd" type="Script" id=1]
 [ext_resource path="res://data/game/fondo.png" type="Texture" id=2]
-[ext_resource path="res://data/game/barra/barra.png" type="Texture" id=3]
+[ext_resource path="res://data/game/barra/barr_tareas.png" type="Texture" id=3]
 [ext_resource path="res://data/game/barra/Hora.gd" type="Script" id=4]
 [ext_resource path="res://data/game/icono.png" type="Texture" id=5]
 [ext_resource path="res://data/game/Icono.gd" type="Script" id=6]
@@ -376,7 +376,9 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="HackerHP" parent="Centerer" index="8" instance=ExtResource( 9 )]
 
+visible = false
 position = Vector2( 711.726, 14.8798 )
+_sections_unfolded = [ "Visibility" ]
 
 [connection signal="button_up" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_up"]
 

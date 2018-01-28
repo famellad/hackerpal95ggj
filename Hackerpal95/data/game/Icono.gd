@@ -30,4 +30,6 @@ func _on_Icono_button_up():
 	
 	get_parent().add_child(h)
 	icon = normal_texture
+	
+	get_parent().get_node("HackerHP").show()
 
