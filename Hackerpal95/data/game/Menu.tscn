@@ -56,12 +56,10 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Visibility"
 
 [node name="Centerer" type="Node2D" parent="." index="1"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Fondo" type="Sprite" parent="Centerer" index="0"]
 
-position = Vector2( 2.57916, -1.60809 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]

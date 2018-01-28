@@ -9,6 +9,9 @@ var new_shitpost = 0
 var next_z = 0
 var draw = [false, false, false, false, false]
 
+var timeout = 10
+var timer = 0
+
 func _ready():
 	randomize()
 	$HelpWindow.read_from_file("Chili.txt")
@@ -36,6 +39,10 @@ func _process(delta):
 		while not drawn:
 			var r = randi() % draw.size()
 			drawn = select_shitpost(r)
+			
+	timer += delta
+	if timer > timeout:
+		queue_free()
 	
 func check_windows():
 	for i in range(draw.size()):

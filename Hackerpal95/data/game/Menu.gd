@@ -18,6 +18,8 @@ var songs = [preload("res://data/music/Theme song (Vaporwave Remix).wav"), prelo
 onready var sound = get_node("sound")
 onready var vega_sound = $Vega
 
+var already_won = false
+
 func _ready():
 	#$Centerer/Hackerexe.hide()
 	var screen = OS.get_screen_size()
@@ -53,6 +55,7 @@ func lose():
 func win():
 	$Centerer/Icono.disabled = false
 	$Centerer/Hackerexe.queue_free()
+	already_won = true
 
 func random_wallpaper():
 	var select = randi() % wallpapers.size()

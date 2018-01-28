@@ -9,7 +9,7 @@
 [ext_resource path="res://data/game/victoria/TrueShape.tscn" type="PackedScene" id=7]
 [ext_resource path="res://data/game/help/HelpWindow.tscn" type="PackedScene" id=8]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 position = Vector2( 500.579, 420.187 )
 script = ExtResource( 1 )
