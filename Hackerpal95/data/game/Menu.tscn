@@ -34,7 +34,7 @@ use_filter = false
 font_data = SubResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Node" index="0"]
+[node name="Menu" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -45,6 +45,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Fondo" type="Sprite" parent="Centerer" index="0"]
 
+position = Vector2( -0.817017, 0 )
 texture = ExtResource( 2 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
@@ -377,6 +378,14 @@ visible = false
 position = Vector2( 711.726, 14.8798 )
 _sections_unfolded = [ "Visibility" ]
 
+[node name="sound" type="AudioStreamPlayer" parent="Centerer/HackerHP" index="3"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="sound" type="AudioStreamPlayer" parent="." index="1"]
 
 stream = null
@@ -386,6 +395,8 @@ mix_target = 0
 bus = "Master"
 
 [connection signal="button_up" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_up"]
+
+[connection signal="finished" from="Centerer/HackerHP/sound" to="Centerer/HackerHP" method="_on_sound_finished"]
 
 [connection signal="finished" from="sound" to="." method="_on_sound_finished"]
 

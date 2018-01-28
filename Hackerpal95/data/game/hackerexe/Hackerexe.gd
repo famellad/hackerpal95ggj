@@ -22,14 +22,13 @@ var masher = preload("res://data/game/hackerexe/desafios/masher/Masher.tscn")
 var lights_out = preload("res://data/game/hackerexe/desafios/lights_out/Light_Panel.tscn")
 var strings = preload("res://data/game/hackerexe/desafios/strings/Strings.tscn")
 
-var menu_select = preload("res://data/SFX/Menu select.ogg")
-var win_sound = preload("res://data/SFX/Windows 95 Startup Remake.ogg")
+var menu_select = preload("res://data/SFX/Menu select.wav")
+var win_sound = preload("res://data/SFX/Windows 95 Startup Remake.wav")
 var exito = preload("res://data/SFX/Hackeo Exitoso.wav")
-var fallo = preload("res://data/SFX/Hackeo Fallido.ogg")
-var time_alert = preload("res://data/SFX/Alerta de tiempo.ogg")
-var clicks = [preload("res://data/SFX/click.ogg"), preload("res://data/SFX/click 2.ogg"), preload("res://data/SFX/click 3.ogg")]
-var tecleo = preload("res://data/SFX/tecleo.ogg")
-var modem = preload("res://data/SFX/modem.ogg")
+var fallo = preload("res://data/SFX/Hackeo Fallido.wav")
+var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
+var tecleo = preload("res://data/SFX/tecleo.wav")
+var modem = preload("res://data/SFX/modem.wav")
 
 onready var sound = get_node("sound")
 
@@ -159,6 +158,9 @@ func add_challenge_time():
 func open_challenge(diff):
 	if challenge_open:
 		return
+	
+	sound.set_stream(menu_select)
+	sound.play(0)
 	
 	challenge_open = true
 	
