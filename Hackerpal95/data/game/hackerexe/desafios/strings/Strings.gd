@@ -55,7 +55,7 @@ func victory():
 		state_desafio = State.Transmitted # Cambiamos el estado del desafio
 		msg_text.text = 'TRANSMITTED!!' # Ya fue resuelto el desafio
 		yield(get_tree().create_timer(0.5), "timeout")
-		#hackerexe.last_hacked()
+		hackerexe.last_hacked()
 		queue_free()
 
 func fail():
