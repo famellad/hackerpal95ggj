@@ -22,6 +22,17 @@ var masher = preload("res://data/game/hackerexe/desafios/masher/Masher.tscn")
 var lights_out = preload("res://data/game/hackerexe/desafios/lights_out/Light_Panel.tscn")
 var strings = preload("res://data/game/hackerexe/desafios/strings/Strings.tscn")
 
+var menu_select = preload("res://data/SFX/Menu select.ogg")
+var win_sound = preload("res://data/SFX/Windows 95 Startup Remake.ogg")
+var exito = preload("res://data/SFX/Hackeo Exitoso.wav")
+var fallo = preload("res://data/SFX/Hackeo Fallido.ogg")
+var time_alert = preload("res://data/SFX/Alerta de tiempo.ogg")
+var clicks = [preload("res://data/SFX/click.ogg"), preload("res://data/SFX/click 2.ogg"), preload("res://data/SFX/click 3.ogg")]
+var tecleo = preload("res://data/SFX/tecleo.ogg")
+var modem = preload("res://data/SFX/modem.ogg")
+
+onready var sound = get_node("sound")
+
 var tier = 0
 var tier_beaten = 0
 
@@ -106,9 +117,13 @@ func tier_up():
 func ultimate_victory():
 	# Mostrar la verdad
 	desktop.hide_hhp()
-	pass
+	sound.set_stream(win_sound)
+	sound.play(0)
 
 func last_hacked():
+	print("hola")
+	sound.set_stream(exito)
+	sound.play(0)
 	challenge_open = false
 	
 	add_challenge_time()
@@ -190,3 +205,7 @@ func new_title():
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
+
+
+func _on_sound_finished():
+	sound.stop()
