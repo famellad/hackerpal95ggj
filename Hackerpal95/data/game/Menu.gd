@@ -24,8 +24,8 @@ func _ready():
 	
 	#$Centerer/Hackerexe.desktop = self
 	$Centerer/HackerHP.desktop = self
-	sound.set_stream(start)
-	sound.play(0)
+	#sound.set_stream(start)
+	#sound.play(0)
 	
 	Input.set_custom_mouse_cursor( cursor )
 	

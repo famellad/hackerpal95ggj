@@ -38,7 +38,7 @@ tracks/1/keys = {
 } ]
 }
 
-[node name="SplashScreen" type="Control" index="0"]
+[node name="SplashScreen" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
