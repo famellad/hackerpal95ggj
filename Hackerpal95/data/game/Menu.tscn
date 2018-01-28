@@ -8,7 +8,7 @@
 [ext_resource path="res://data/game/Icono.gd" type="Script" id=6]
 [ext_resource path="res://data/game/carpetas.png" type="Texture" id=7]
 [ext_resource path="res://data/game/conexion.png" type="Texture" id=8]
-[ext_resource path="res://data/game/ayuda.png" type="Texture" id=9]
+[ext_resource path="res://data/game/Darknet.gd" type="Script" id=9]
 [ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -135,6 +135,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="sound" type="AudioStreamPlayer" parent="Centerer/Icono" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [node name="RandomIco1" type="Button" parent="Centerer" index="3"]
 
@@ -324,7 +332,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="RandomIco4" type="Button" parent="Centerer" index="7"]
+[node name="Darknet" type="Button" parent="Centerer" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -346,8 +354,9 @@ group = null
 icon = ExtResource( 8 )
 flat = true
 align = 1
+script = ExtResource( 9 )
 
-[node name="Nombre" type="Label" parent="Centerer/RandomIco4" index="0"]
+[node name="Nombre" type="Label" parent="Centerer/Darknet" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -371,101 +380,15 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HelpMission" type="Button" parent="Centerer" index="8"]
+[node name="sound" type="AudioStreamPlayer" parent="Centerer/Darknet" index="1"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 44.0
-margin_top = 182.0
-margin_right = 128.0
-margin_bottom = 269.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 0
-shortcut = null
-group = null
-icon = ExtResource( 9 )
-flat = true
-align = 1
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
-[node name="Nombre" type="Label" parent="Centerer/HelpMission" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -1.0
-margin_top = 80.0
-margin_right = 86.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Mission.xt"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="HelpHowTo" type="Button" parent="Centerer" index="9"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 45.0
-margin_top = 298.0
-margin_right = 129.0
-margin_bottom = 385.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 0
-shortcut = null
-group = null
-icon = ExtResource( 9 )
-flat = true
-align = 1
-
-[node name="Nombre" type="Label" parent="Centerer/HelpHowTo" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -1.0
-margin_top = 80.0
-margin_right = 86.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "HowTo.txt"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="HackerHP" parent="Centerer" index="10" instance=ExtResource( 10 )]
+[node name="HackerHP" parent="Centerer" index="8" instance=ExtResource( 10 )]
 
 visible = false
 position = Vector2( 711.726, 14.8798 )
@@ -488,6 +411,12 @@ mix_target = 0
 bus = "Master"
 
 [connection signal="button_up" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_up"]
+
+[connection signal="finished" from="Centerer/Icono/sound" to="Centerer/Icono" method="_on_sound_finished"]
+
+[connection signal="pressed" from="Centerer/Darknet" to="Centerer/Darknet" method="_on_Darknet_pressed"]
+
+[connection signal="finished" from="Centerer/Darknet/sound" to="Centerer/Darknet" method="_on_sound_finished"]
 
 [connection signal="finished" from="Centerer/HackerHP/sound" to="Centerer/HackerHP" method="_on_sound_finished"]
 
