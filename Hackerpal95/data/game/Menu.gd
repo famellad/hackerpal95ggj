@@ -3,6 +3,13 @@ extends Node
 var cursor = preload("res://data/game/puntero.png")
 var notepad = preload("res://data/game/help/HelpWindow.tscn")
 
+var wallpapers = [preload("res://data/game/wallpaper/plain.png"),\
+					preload("res://data/game/wallpaper/fondo1.png"),\
+					preload("res://data/game/wallpaper/fondo2.png"),\
+					preload("res://data/game/wallpaper/fondo3.png"),\
+					preload("res://data/game/wallpaper/fondo4.png"),\
+					preload("res://data/game/wallpaper/fondo5.png")]
+
 var lose_sound = preload("res://data/SFX/Police.wav")
 var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
 var start = preload("res://data/SFX/sega theme.wav")
@@ -42,6 +49,10 @@ func lose():
 func win():
 	$Centerer/Icono.disabled = false
 	$Centerer/Hackerexe.queue_free()
+
+func random_wallpaper():
+	var select = randi() % wallpapers.size()
+	$Centerer/Fondo.texture = wallpapers[select]
 
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):
