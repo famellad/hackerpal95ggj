@@ -9,7 +9,7 @@
 [ext_resource path="res://data/game/victoria/TrueShape.tscn" type="PackedScene" id=7]
 [ext_resource path="res://data/game/help/HelpWindow.tscn" type="PackedScene" id=8]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 position = Vector2( 500.579, 420.187 )
 script = ExtResource( 1 )
@@ -25,22 +25,22 @@ position = Vector2( -130.452, 4.8371 )
 
 [node name="FakeLanding" parent="." index="1" instance=ExtResource( 4 )]
 
-position = Vector2( -30.9484, -148.341 )
+position = Vector2( -139.511, -250.223 )
 
 [node name="FreePalmPilot" parent="." index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 162.127, -100.179 )
+position = Vector2( 270.689, 98.5735 )
 
 [node name="CyberSecurity" parent="." index="3" instance=ExtResource( 6 )]
 
-position = Vector2( -294.594, -55.0398 )
+position = Vector2( -286.243, -56.71 )
 
 [node name="TrueShape" parent="." index="4" instance=ExtResource( 7 )]
 
-position = Vector2( 219.688, 70.1127 )
+position = Vector2( 204.656, -155.363 )
 
 [node name="HelpWindow" parent="." index="5" instance=ExtResource( 8 )]
 
-position = Vector2( -348.94, -105.311 )
+position = Vector2( -263.761, -110.322 )
 
 
