@@ -16,5 +16,6 @@ func _ready():
 
 
 func _on_CloseButton_button_up():
+	get_parent().get_parent().desktop.get_node("Centerer/HackerHP").hide()
 	get_parent().get_parent().desktop.enable_button()
 	get_parent().get_parent().queue_free()

@@ -10,11 +10,23 @@ func _ready():
 	$Centerer.translate(Vector2(centro_x, centro_y))
 	
 	#$Centerer/Hackerexe.desktop = self
+	$Centerer/HackerHP.desktop = self
 	
 	Input.set_custom_mouse_cursor( cursor )
 	
 func enable_button():
 	$Centerer/Icono.disabled = false
+	
+func add_time( amount ):
+	$Centerer/HackerHP.add_time(amount)
+
+func hide_hhp():
+	$Centerer/HackerHP.hide()
+	
+func lose():
+	$Centerer/Icono.disabled = false
+	$Centerer/Hackerexe.queue_free()
+	# PANTALLA Y SONIDO DE PERDER
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.

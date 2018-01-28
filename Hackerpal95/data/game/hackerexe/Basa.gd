@@ -8,7 +8,7 @@ var infected = false
 var coords = Vector2(0, 0)
 var hackerexe
 
-var diff = "hard"
+var diff = "insane"
 
 func _ready():
 	set_process(false)
