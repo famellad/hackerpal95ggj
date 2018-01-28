@@ -146,6 +146,7 @@ func last_hacked():
 	if last_coord.y == 100:
 		ultimate_victory()
 		$Lines.add_route_node(Vector2(96 * 5 + x_offset, 82 * 2 + y_offset))
+		tier = 6
 		return
 
 	#print(str(last_coord.y))
@@ -157,12 +158,15 @@ func last_hacked():
 		tier += 1
 		new_title()
 		$Lines.add_route_node(inf_node.get_transform()[2])
+		music.stop()
 	elif last_coord.y == tier:
 		tier_up()
 		$Lines.add_route_node(inf_node.get_transform()[2])
 		#print(inf_node.get_transform()[2])
 
 	inf_node.infect()
+	
+	print("da real tier: " + str(tier))
 
 
 func add_challenge_time():
@@ -181,9 +185,11 @@ func open_challenge(diff):
 
 	challenge_open = true
 
+	diff = "easy"
+
 	last_diff = diff
 
-	var rand = randi() % 3
+	var rand = 1#randi() % 3
 
 	var c
 
