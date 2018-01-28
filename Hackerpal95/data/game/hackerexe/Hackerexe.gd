@@ -28,7 +28,7 @@ var exito = preload("res://data/SFX/Hackeo Exitoso.wav")
 var fallo = preload("res://data/SFX/Hackeo Fallido.wav")
 var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
 var tecleo = preload("res://data/SFX/Tecleo.wav")
-var modem = preload("res://data/SFX/Modem.wav")
+
 
 onready var sound = get_node("sound")
 
