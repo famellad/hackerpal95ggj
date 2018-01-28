@@ -2,7 +2,7 @@
 
 [ext_resource path="res://data/game/victoria/articulo1.png" type="Texture" id=1]
 
-[node name="FakeLanding" type="Node2D" index="0"]
+[node name="FakeLanding" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
