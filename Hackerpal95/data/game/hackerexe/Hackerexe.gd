@@ -193,7 +193,7 @@ func last_hacked():
 
 	inf_node.infect()
 	
-	print("da real tier: " + str(tier))
+	#print("da real tier: " + str(tier))
 
 
 func add_challenge_time():
@@ -206,7 +206,7 @@ func open_challenge(diff):
 	if challenge_open:
 		return
 	
-	print(diff)
+	#print(diff)
 	sound.set_stream(menu_select)
 	sound.play(0)
 
@@ -258,7 +258,7 @@ func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	if not music.playing:
-		print("tier: ", tier)
+		#print("tier: ", tier)
 		#print(music.stream, ini_lvl_2, lvl_2, " tier: ", tier)
 		if music.stream == ini_lvl_1:
 			music.set_stream(lvl_1)
@@ -276,23 +276,23 @@ func _process(delta):
 			music.set_stream(lvl_5)
 			music.play(0)
 		elif tier == 0 or tier == 1:
-			print(tier)
+			#print(tier)
 			music.set_stream(ini_lvl_1)
 			music.play(0)
 		elif tier == 2:
-			print(tier)
+			#print(tier)
 			music.set_stream(ini_lvl_2)
 			music.play(0)
 		elif tier == 3:
-			print(tier)
+			#print(tier)
 			music.set_stream(ini_lvl_3)
 			music.play(0)
 		elif tier == 4:
-			print(tier)
+			#print(tier)
 			music.set_stream(ini_lvl_4)
 			music.play(0)
 		elif tier == 5:
-			print(tier)
+			#print(tier)
 			music.set_stream(ini_lvl_5)
 			music.play(0)
 	elif tier == 6:
