@@ -1,0 +1,11 @@
+==== TERMINALS ====
+You can attack any terminal that's lit up and hasn't been already infected. Larger terminals give you greater payoffs, but they're more difficult!
+
+==== LOCKS ====
+Unlock all the nodes in order to progress, when you click a node, it toggles its state, and the state of all adyacent locks, use your brains, kid.
+
+==== PASSWORDS ====
+You just have to enter the passwords into the system, they're literally in front of you, there's a time limit but just don't mess it up, use your reflexes, kid.
+
+==== CODING ====
+Code as hard as you can, the screen will tell you what letters you should press, and you should press them as quickly as possible, use your might, kid.

@@ -489,6 +489,10 @@ bus = "Master"
 
 [connection signal="button_up" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_up"]
 
+[connection signal="button_up" from="Centerer/HelpMission" to="." method="_on_HelpMission_button_up"]
+
+[connection signal="button_up" from="Centerer/HelpHowTo" to="." method="_on_HelpHowTo_button_up"]
+
 [connection signal="finished" from="Centerer/HackerHP/sound" to="Centerer/HackerHP" method="_on_sound_finished"]
 
 [connection signal="finished" from="sound" to="." method="_on_sound_finished"]

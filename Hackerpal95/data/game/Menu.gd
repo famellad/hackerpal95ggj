@@ -2,6 +2,7 @@ extends Node
 
 var cursor = preload("res://data/game/puntero.png")
 var lose_sound = preload("res://data/SFX/Police.wav")
+var notepad = preload("res://data/game/help/HelpWindow.tscn")
 
 onready var sound = get_node("sound")
 
@@ -41,3 +42,17 @@ func _process(delta):
 
 func _on_sound_finished():
   sound.stop()
+
+
+func _on_HelpMission_button_up():
+	var n = notepad.instance()
+	n.translate(Vector2(123, 66))
+	n.read_from_file("Mission.txt")
+	add_child(n)
+
+
+func _on_HelpHowTo_button_up():
+	var n = notepad.instance()
+	n.translate(Vector2(143, 76))
+	n.read_from_file("HowTo.txt")
+	add_child(n)
