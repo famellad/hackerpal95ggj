@@ -28,6 +28,7 @@ var exito = preload("res://data/SFX/Hackeo Exitoso.wav")
 var fallo = preload("res://data/SFX/Hackeo Fallido.wav")
 var clicks = [preload("res://data/SFX/Click 1.wav"), preload("res://data/SFX/Click 2.wav"), preload("res://data/SFX/Click 3.wav")]
 var tecleo = preload("res://data/SFX/Tecleo.wav")
+var startup = preload("res://data/SFX/Computer startup.wav")
 
 var ini_lvl_1 = preload("res://data/music/Inicio Level 1 - menu.wav")
 var ini_lvl_2 = preload("res://data/music/Inicio Level 2.wav")
@@ -106,6 +107,8 @@ func set_desktop(object):
 
 # Desbloquea el tier mas bajo, para comenzar a jugar
 func unlock_tier0():
+	sound.set_stream(startup)
+	sound.play(0)
 	yield(get_tree().create_timer(1.5), "timeout")
 	for i in range(0, 5):
 		get_node("but_tier" + str(0) + "_" + str(i)).activate()
