@@ -34,7 +34,7 @@ use_filter = false
 font_data = SubResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Node" index="0"]
+[node name="Menu" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -89,7 +89,6 @@ _sections_unfolded = [ "Grow Direction", "custom_colors" ]
 
 [node name="Icono" type="Button" parent="Centerer" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

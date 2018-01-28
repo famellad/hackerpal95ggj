@@ -6,13 +6,18 @@ extends Node2D
 var diff = "easy"
 var mash_level = 0
 var mash_drain = 20
-var mash_threshold = 0
-var possible_scancodes = [KEY_A, KEY_C, KEY_H, KEY_K]
+var mash_threshold = 10
+var possible_scancodes = [[KEY_A, KEY_C, KEY_H, KEY_K],\
+							[KEY_C, KEY_O, KEY_D, KEY_D],\
+							[KEY_W, KEY_O, KEY_R, KEY_M]]
+var insane_scancodes = [KEY_V, KEY_I, KEY_R, KEY_U, KEY_S]
 var diff_scancodes = []
+var selected_scancodes = []
 var mash_key_scancode = 75 # 75 es k
 
 var hack_visible = true
 var hack_timer = 0.5
+var choice 
 
 var hackerexe
 var sfx_node
@@ -24,12 +29,14 @@ var tecleo = preload("res://data/SFX/Tecleo.wav")
 var lines = []
 
 func _ready():
+	randomize()
 	sfx_node = get_node("Ventana/SFX/Sound")
 	sfx_node.set_stream( tecleo )
 	set_process_input(true)
-	#set_difficulty("insane")
+	set_difficulty("hard")
 	get_lines()
 	$Ventana/Code.scroll_following = true
+	
 
 func get_lines():
 	var file = File.new()
@@ -42,22 +49,29 @@ func set_hackerexe(object):
 
 func set_difficulty(new_diff):
 	diff = new_diff
+	choice = randi() % 3
+	match choice:
+		0 : $Ventana/MashMessage2.text = "H    A    C    K"
+		1 : $Ventana/MashMessage2.text = "C    O    D    E"
+		2 : $Ventana/MashMessage2.text = "W    O    R    M"
+	
 	if diff == "easy":
-		mash_threshold = 100
-		mash_drain = 14
-		#pick_scancodes(4)
+		mash_threshold = 120
+		mash_drain = 20
+		selected_scancodes = possible_scancodes[choice]
 	elif diff == "medium":
-		mash_threshold = 150
-		mash_drain = 23
-		#pick_scancodes(4)
-	elif diff == "hard":
-		mash_threshold = 200
+		mash_threshold = 170
 		mash_drain = 28
-		#pick_scancodes(3)
+		selected_scancodes = possible_scancodes[choice]
+	elif diff == "hard":
+		mash_threshold = 220
+		mash_drain = 40
+		selected_scancodes = possible_scancodes[choice]
 	elif diff == "insane":
-		mash_threshold = 300
-		mash_drain = 50
-		#pick_scancodes(4)
+		mash_threshold = 350
+		mash_drain = 40
+		selected_scancodes = insane_scancodes
+		$Ventana/MashMessage2.text = "V   I   R   U   S"
 
 func pick_scancodes(number):
 	diff_scancodes = possible_scancodes
@@ -77,7 +91,7 @@ func victory():
 
 func _process(delta):
 	if randf() < 0.5:
-		mash_key_scancode = possible_scancodes[randi() % (possible_scancodes.size())]
+		mash_key_scancode = selected_scancodes[randi() % (selected_scancodes.size())]
 	
 	if mash_level > mash_threshold:
 		victory()
@@ -87,17 +101,6 @@ func _process(delta):
 	
 	if mash_level < 0:
 		mash_level = 0
-	
-	var mash_string = ""
-	
-	if mash_key_scancode == KEY_A:
-		mash_string = "A"
-	elif mash_key_scancode == KEY_C:
-		mash_string = "C"
-	elif mash_key_scancode == KEY_H:
-		mash_string = "H"
-	elif mash_key_scancode == KEY_K:
-		mash_string = "K"
 	
 	$Ventana/BarraCarga.set_level(mash_level/mash_threshold)
 	
