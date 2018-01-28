@@ -8,6 +8,8 @@ var infected = false
 var coords = Vector2(0, 0)
 var hackerexe
 
+var active = false
+
 var diff = "insane"
 
 func _ready():
@@ -15,6 +17,7 @@ func _ready():
 	pass
 	
 func activate():
+	active = true
 	pass
 
 func infect():

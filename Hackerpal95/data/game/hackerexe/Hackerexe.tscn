@@ -105,8 +105,6 @@ bus = "Master"
 
 [node name="Warnings" type="Node2D" parent="." index="5"]
 
-<<<<<<< HEAD
-=======
 [node name="FlashingWarning" parent="Warnings" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( -50, -50 )
@@ -139,7 +137,6 @@ position = Vector2( 350, -50 )
 
 position = Vector2( 360, 510 )
 
->>>>>>> d336e04e9eae79f79d06f3405938406dd2ff2d1b
 [connection signal="button_up" from="Ventana/CloseButton" to="Ventana/CloseButton" method="_on_CloseButton_button_up"]
 
 [connection signal="finished" from="sound" to="." method="_on_sound_finished"]
