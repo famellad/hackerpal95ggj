@@ -42,6 +42,7 @@ var lvl_4 = preload("res://data/music/Level 4.wav")
 var lvl_5 = preload("res://data/music/Level 5.wav")
 
 onready var sound = get_node("sound")
+onready var music = get_node("music")
 
 var tier = 0
 var tier_beaten = 0
@@ -111,6 +112,7 @@ func unlock_tier0():
 
 # Desbloquea el siguiente tier
 func tier_up():
+	music.stop()
 	tier += 1
 
 	for i in range(0, 5):
@@ -129,6 +131,7 @@ func ultimate_victory():
 	# Mostrar la verdad
 	desktop.hide_hhp()
 	sound.set_stream(win_sound)
+	music.stop()
 	sound.play(0)
 
 func last_hacked():
@@ -219,39 +222,40 @@ func new_title():
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
-	if not sound.playing:
-		if sound.stream == exito:
-			sound.set_stream(ini_lvl_1)
-			sound.play(0)
-		elif sound.stream == lvl_1 or sound.stream == lvl_2 or sound.stream == lvl_3 or sound.stream == lvl_4 or sound.stream == lvl_5:
-			sound.play(0)
-		elif sound.stream == ini_lvl_1:
-			sound.set_stream(lvl_1)
-			sound.play(0)
+	if not music.playing:
+		print(music.stream)
+		if music.stream == lvl_1 or music.stream == lvl_2 or music.stream == lvl_3 or music.stream == lvl_4 or music.stream == lvl_5:
+			music.play(0)
+		elif music.stream == ini_lvl_1:
+			music.set_stream(lvl_1)
+			music.play(0)
+		elif tier == 0 or tier == 1:
+			music.set_stream(ini_lvl_1)
+			music.play(0)
+		elif music.stream == ini_lvl_2:
+			music.set_stream(lvl_2)
+			music.play(0)
 		elif tier == 2:
-			sound.set_stream(ini_lvl_2)
-			sound.play(0)
-		elif sound.stream == ini_lvl_2:
-			sound.set_stream(lvl_2)
-			sound.play(0)
+			music.set_stream(ini_lvl_2)
+			music.play(0)
+		elif music.stream == ini_lvl_3:
+			music.set_stream(lvl_3)
+			music.play(0)
 		elif tier == 3:
-			sound.set_stream(ini_lvl_3)
-			sound.play(0)
-		elif sound.stream == ini_lvl_3:
-			sound.set_stream(lvl_3)
-			sound.play(0)
+			music.set_stream(ini_lvl_3)
+			music.play(0)
+		elif music.stream == ini_lvl_4:
+			music.set_stream(lvl_4)
+			music.play(0)
 		elif tier == 4:
-			sound.set_stream(ini_lvl_4)
-			sound.play(0)
-		elif sound.stream == ini_lvl_4:
-			sound.set_stream(lvl_4)
-			sound.play(0)
+			music.set_stream(ini_lvl_4)
+			music.play(0)
+		elif music.stream == ini_lvl_5:
+			music.set_stream(lvl_5)
+			music.play(0)
 		elif tier == 5:
-			sound.set_stream(ini_lvl_5)
-			sound.play(0)
-		elif sound.stream == ini_lvl_5:
-			sound.set_stream(lvl_5)
-			sound.play(0)
+			music.set_stream(ini_lvl_5)
+			music.play(0)
 
 
 func _on_sound_finished():
