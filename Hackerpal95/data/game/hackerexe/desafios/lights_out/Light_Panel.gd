@@ -124,7 +124,7 @@ func light(n, action):
 	else:
 		moves.append(n)
 	moves.sort()
-	print(moves)
+	#print(moves)
 	if action:
 		button.pressed = not button.pressed
 	elif not sound.playing:
