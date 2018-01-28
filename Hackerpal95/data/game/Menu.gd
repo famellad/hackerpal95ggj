@@ -1,6 +1,9 @@
 extends Node
 
 var cursor = preload("res://data/game/puntero.png")
+var lose_sound = preload("res://data/SFX/Police.wav")
+
+onready var sound = get_node("sound")
 
 func _ready():
 	#$Centerer/Hackerexe.hide()
@@ -26,9 +29,15 @@ func hide_hhp():
 func lose():
 	$Centerer/Icono.disabled = false
 	$Centerer/Hackerexe.queue_free()
+	sound.set_stream(lose_sound)
+	sound.play(0)
 	# PANTALLA Y SONIDO DE PERDER
 
 func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	pass
+
+
+func _on_sound_finished():
+	sound.stop()
