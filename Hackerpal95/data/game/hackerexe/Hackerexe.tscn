@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://data/game/hackerexe/Hackerexe.gd" type="Script" id=1]
 [ext_resource path="res://data/game/hackerexe/ventana_principal.png" type="Texture" id=2]
 [ext_resource path="res://data/game/hackerexe/boton_cerrar.png" type="Texture" id=3]
 [ext_resource path="res://data/game/hackerexe/CloseButton.gd" type="Script" id=4]
 [ext_resource path="res://data/game/hackerexe/Lines.gd" type="Script" id=5]
+[ext_resource path="res://data/game/hackerexe/desafios/FlashingWarning.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -104,6 +105,41 @@ bus = "Master"
 
 [node name="Warnings" type="Node2D" parent="." index="5"]
 
+<<<<<<< HEAD
+=======
+[node name="FlashingWarning" parent="Warnings" index="0" instance=ExtResource( 6 )]
+
+position = Vector2( -50, -50 )
+
+[node name="FlashingWarning2" parent="Warnings" index="1" instance=ExtResource( 6 )]
+
+position = Vector2( 740, -40 )
+
+[node name="FlashingWarning3" parent="Warnings" index="2" instance=ExtResource( 6 )]
+
+position = Vector2( -40, 510 )
+
+[node name="FlashingWarning4" parent="Warnings" index="3" instance=ExtResource( 6 )]
+
+position = Vector2( 740, 510 )
+
+[node name="FlashingWarning5" parent="Warnings" index="4" instance=ExtResource( 6 )]
+
+position = Vector2( -50, 230 )
+
+[node name="FlashingWarning6" parent="Warnings" index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 740, 230 )
+
+[node name="FlashingWarning7" parent="Warnings" index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 350, -50 )
+
+[node name="FlashingWarning8" parent="Warnings" index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 360, 510 )
+
+>>>>>>> d336e04e9eae79f79d06f3405938406dd2ff2d1b
 [connection signal="button_up" from="Ventana/CloseButton" to="Ventana/CloseButton" method="_on_CloseButton_button_up"]
 
 [connection signal="finished" from="sound" to="." method="_on_sound_finished"]
