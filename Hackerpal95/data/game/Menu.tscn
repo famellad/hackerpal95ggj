@@ -34,7 +34,7 @@ use_filter = false
 font_data = SubResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Menu" type="Node" index="0"]
+[node name="Menu" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -59,10 +59,6 @@ position = Vector2( 0, 16 )
 texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
-
-[node name="compucito" type="Sprite" parent="Centerer/Barra/SpriteBarra" index="0"]
-
-position = Vector2( 938.185, 16.5986 )
 
 [node name="Hora" type="Label" parent="Centerer/Barra" index="1"]
 
