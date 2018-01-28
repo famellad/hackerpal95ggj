@@ -84,18 +84,18 @@ func reset():
 	if word.length() == 0:
 		word = rand_elem(get_words(diff)).to_upper()
 	
-	if diff == 'hard' or diff == 'insane':
+	if diff != 'easy':
 		word = semi_shuffle(word)
 	# Dependiendo de la dificultad se coloca un time determinado
 	match diff:
 		'easy': 
 			time = 5
 		'medium':
-			time = 5
-		'hard':
 			time = 4
-		'insane':
+		'hard':
 			time = 3.5
+		'insane':
+			time = 3
 		
 	start_time = time
 	
@@ -137,7 +137,12 @@ func _input(event):
 				# Si la primera letra de la palabra es la tecla que presionamos
 				word.erase(0,1) # Borramos la primera letra
 				type_text.text = word # y cambiamos el label
-				time += 0.1
+				match diff:
+					'hard': time += 0.1
+					'insane': time += 0.05
+					
+					
+				
 				# la idea principal es que cada vez que el hacker introduzca bien una letra
 				# esta desaparezca del label, quedando las letras siguientes a la palabra
 				
