@@ -112,8 +112,8 @@ func unlock_tier0():
 
 # Desbloquea el siguiente tier
 func tier_up():
-	music.stop()
 	tier += 1
+	music.stop()
 
 	for i in range(0, 5):
 		get_node("but_tier" + str(tier - 1) + "_" + str(i)).activate()
@@ -223,35 +223,33 @@ func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	if not music.playing:
-		print(music.stream)
-		if music.stream == lvl_1 or music.stream == lvl_2 or music.stream == lvl_3 or music.stream == lvl_4 or music.stream == lvl_5:
-			music.play(0)
-		elif music.stream == ini_lvl_1:
+		#print(music.stream, ini_lvl_2, lvl_2, " tier: ", tier)
+		if music.stream == ini_lvl_1:
 			music.set_stream(lvl_1)
-			music.play(0)
-		elif tier == 0 or tier == 1:
-			music.set_stream(ini_lvl_1)
 			music.play(0)
 		elif music.stream == ini_lvl_2:
 			music.set_stream(lvl_2)
 			music.play(0)
-		elif tier == 2:
-			music.set_stream(ini_lvl_2)
-			music.play(0)
 		elif music.stream == ini_lvl_3:
 			music.set_stream(lvl_3)
-			music.play(0)
-		elif tier == 3:
-			music.set_stream(ini_lvl_3)
 			music.play(0)
 		elif music.stream == ini_lvl_4:
 			music.set_stream(lvl_4)
 			music.play(0)
-		elif tier == 4:
-			music.set_stream(ini_lvl_4)
-			music.play(0)
 		elif music.stream == ini_lvl_5:
 			music.set_stream(lvl_5)
+			music.play(0)
+		elif tier == 0 or tier == 1:
+			music.set_stream(ini_lvl_1)
+			music.play(0)
+		elif tier == 2:
+			music.set_stream(ini_lvl_2)
+			music.play(0)
+		elif tier == 3:
+			music.set_stream(ini_lvl_3)
+			music.play(0)
+		elif tier == 4:
+			music.set_stream(ini_lvl_4)
 			music.play(0)
 		elif tier == 5:
 			music.set_stream(ini_lvl_5)
