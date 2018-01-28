@@ -1,17 +1,22 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://data/game/Menu.gd" type="Script" id=1]
-[ext_resource path="res://data/game/fondo.png" type="Texture" id=2]
-[ext_resource path="res://data/game/barra_inicio/menu_creditos.png" type="Texture" id=3]
-[ext_resource path="res://data/game/barra/barr_tareas.png" type="Texture" id=4]
-[ext_resource path="res://data/game/barra/Hora.gd" type="Script" id=5]
-[ext_resource path="res://data/game/icono.png" type="Texture" id=6]
-[ext_resource path="res://data/game/Icono.gd" type="Script" id=7]
-[ext_resource path="res://data/game/carpetas.png" type="Texture" id=8]
-[ext_resource path="res://data/game/ayuda.png" type="Texture" id=9]
-[ext_resource path="res://data/game/conexion.png" type="Texture" id=10]
-[ext_resource path="res://data/game/Darknet.gd" type="Script" id=11]
-[ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=12]
+[ext_resource path="res://data/game/derrota/pantallazo_azul.png" type="Texture" id=2]
+[ext_resource path="res://data/game/wallpaper/plain.png" type="Texture" id=3]
+[ext_resource path="res://data/game/barra_inicio/menu_creditos.png" type="Texture" id=4]
+[ext_resource path="res://data/game/barra/barr_tareas.png" type="Texture" id=5]
+[ext_resource path="res://data/game/barra/Hora.gd" type="Script" id=6]
+[ext_resource path="res://data/game/icono.png" type="Texture" id=7]
+[ext_resource path="res://data/game/Icono.gd" type="Script" id=8]
+[ext_resource path="res://data/game/white.png" type="Texture" id=9]
+[ext_resource path="res://data/game/carpetas.png" type="Texture" id=10]
+[ext_resource path="res://data/game/WallpaperChange.gd" type="Script" id=11]
+[ext_resource path="res://data/game/cd.png" type="Texture" id=12]
+[ext_resource path="res://data/game/ayuda.png" type="Texture" id=13]
+[ext_resource path="res://data/game/conexion.png" type="Texture" id=14]
+[ext_resource path="res://data/game/Darknet.gd" type="Script" id=15]
+[ext_resource path="res://data/game/hackerhp/HackerHP.tscn" type="PackedScene" id=16]
+[ext_resource path="res://data/SFX/sega theme.wav" type="AudioStream" id=17]
 
 [sub_resource type="DynamicFontData" id=1]
 
@@ -41,14 +46,23 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 script = ExtResource( 1 )
 
-[node name="Centerer" type="Node2D" parent="." index="0"]
+[node name="Blue_Screen" type="Sprite" parent="." index="0"]
 
+visible = false
+position = Vector2( 511.187, 383.91 )
+z_index = 100
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Visibility", "Z Index" ]
+
+[node name="Centerer" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Fondo" type="Sprite" parent="Centerer" index="0"]
 
-position = Vector2( -0.928955, 0 )
-texture = ExtResource( 2 )
+position = Vector2( 2.57916, -1.60809 )
+texture = ExtResource( 3 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
 
@@ -80,7 +94,8 @@ align = 1
 
 visible = false
 position = Vector2( 99.3961, 589.803 )
-texture = ExtResource( 3 )
+z_index = 1
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Turn_Off" type="Button" parent="Centerer/Fondo/Start_Menu" index="0"]
@@ -110,13 +125,14 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Barra" type="Node2D" parent="Centerer" index="1"]
 
+editor/display_folded = true
 position = Vector2( -0.05196, 720 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="SpriteBarra" type="Sprite" parent="Centerer/Barra" index="0"]
 
 position = Vector2( -0.7794, 15.8961 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 _sections_unfolded = [ "Offset", "Transform" ]
 
@@ -143,7 +159,7 @@ align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Grow Direction", "custom_colors" ]
 
 [node name="Icono" type="Button" parent="Centerer" index="2"]
@@ -165,12 +181,20 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 6 )
+icon = ExtResource( 7 )
 flat = true
 align = 1
-script = ExtResource( 7 )
+script = ExtResource( 8 )
 
-[node name="Nombre" type="Label" parent="Centerer/Icono" index="0"]
+[node name="white" type="Sprite" parent="Centerer/Icono" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 41.7383, 91.2078 )
+scale = Vector2( 1.49815, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/Icono" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -194,7 +218,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="sound" type="AudioStreamPlayer" parent="Centerer/Icono" index="1"]
+[node name="sound" type="AudioStreamPlayer" parent="Centerer/Icono" index="2"]
 
 stream = null
 volume_db = 0.0
@@ -208,10 +232,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 251.0
-margin_top = 189.0
-margin_right = 335.0
-margin_bottom = 276.0
+margin_left = 279.0
+margin_top = 199.0
+margin_right = 363.0
+margin_bottom = 286.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -221,11 +245,19 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 10 )
 flat = true
 align = 1
 
-[node name="Nombre" type="Label" parent="Centerer/RandomIco1" index="0"]
+[node name="white2" type="Sprite" parent="Centerer/RandomIco1" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 43.2764, 92.6016 )
+scale = Vector2( 0.89185, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/RandomIco1" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -268,11 +300,19 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 10 )
 flat = true
 align = 1
 
-[node name="Nombre" type="Label" parent="Centerer/RandomIco2" index="0"]
+[node name="white3" type="Sprite" parent="Centerer/RandomIco2" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 41.721, 91.7256 )
+scale = Vector2( 1.101, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/RandomIco2" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -302,10 +342,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 344.0
-margin_top = 407.0
-margin_right = 428.0
-margin_bottom = 494.0
+margin_left = 367.0
+margin_top = 415.0
+margin_right = 451.0
+margin_bottom = 502.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -315,11 +355,19 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 10 )
 flat = true
 align = 1
 
-[node name="Nombre" type="Label" parent="Centerer/RandomIco3" index="0"]
+[node name="white4" type="Sprite" parent="Centerer/RandomIco3" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 41.1385, 92.0685 )
+scale = Vector2( 1.101, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/RandomIco3" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -349,10 +397,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 547.0
-margin_top = 207.0
-margin_right = 631.0
-margin_bottom = 294.0
+margin_left = 512.0
+margin_top = 229.0
+margin_right = 596.0
+margin_bottom = 316.0
 rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -362,11 +410,19 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 8 )
+icon = ExtResource( 10 )
 flat = true
 align = 1
 
-[node name="Nombre" type="Label" parent="Centerer/RandomIco5" index="0"]
+[node name="white5" type="Sprite" parent="Centerer/RandomIco5" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 42.9263, 92.46 )
+scale = Vector2( 1.23501, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/RandomIco5" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -390,7 +446,119 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HelpMission" type="Button" parent="Centerer" index="7"]
+[node name="WallpaperChange" type="Button" parent="Centerer" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 770.0
+margin_top = 424.0
+margin_right = 854.0
+margin_bottom = 511.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+icon = ExtResource( 10 )
+flat = true
+align = 1
+script = ExtResource( 11 )
+
+[node name="white6" type="Sprite" parent="Centerer/WallpaperChange" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 42.9603, 92.6703 )
+scale = Vector2( 1.10709, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/WallpaperChange" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = 80.0
+margin_right = 86.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Wallpa~1"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="CD" type="Button" parent="Centerer" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 869.0
+margin_top = 137.0
+margin_right = 953.0
+margin_bottom = 224.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 0
+shortcut = null
+group = null
+icon = ExtResource( 12 )
+flat = true
+align = 1
+script = ExtResource( 11 )
+
+[node name="white6" type="Sprite" parent="Centerer/CD" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 42.9603, 92.6703 )
+scale = Vector2( 1.10709, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/CD" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -1.0
+margin_top = 80.0
+margin_right = 86.0
+margin_bottom = 100.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "CDROM"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="HelpMission" type="Button" parent="Centerer" index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -409,11 +577,19 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 9 )
+icon = ExtResource( 13 )
 flat = true
 align = 1
 
-[node name="Nombre" type="Label" parent="Centerer/HelpMission" index="0"]
+[node name="white6" type="Sprite" parent="Centerer/HelpMission" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 42.1201, 92.7268 )
+scale = Vector2( 1.36491, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/HelpMission" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -437,7 +613,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="HelpHowTo" type="Button" parent="Centerer" index="8"]
+[node name="HelpHowTo" type="Button" parent="Centerer" index="10"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -456,11 +632,19 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 9 )
+icon = ExtResource( 13 )
 flat = true
 align = 1
 
-[node name="Nombre" type="Label" parent="Centerer/HelpHowTo" index="0"]
+[node name="white7" type="Sprite" parent="Centerer/HelpHowTo" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 43.9561, 91.5672 )
+scale = Vector2( 1.36491, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/HelpHowTo" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -484,7 +668,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Darknet" type="Button" parent="Centerer" index="9"]
+[node name="Darknet" type="Button" parent="Centerer" index="11"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -503,12 +687,20 @@ toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
 group = null
-icon = ExtResource( 10 )
+icon = ExtResource( 14 )
 flat = true
 align = 1
-script = ExtResource( 11 )
+script = ExtResource( 15 )
 
-[node name="Nombre" type="Label" parent="Centerer/Darknet" index="0"]
+[node name="white8" type="Sprite" parent="Centerer/Darknet" index="0"]
+
+modulate = Color( 1, 1, 1, 0.498039 )
+position = Vector2( 43.0536, 92.5673 )
+scale = Vector2( 1.0296, 0.326869 )
+texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Nombre" type="Label" parent="Centerer/Darknet" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -532,7 +724,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="sound" type="AudioStreamPlayer" parent="Centerer/Darknet" index="1"]
+[node name="sound" type="AudioStreamPlayer" parent="Centerer/Darknet" index="2"]
 
 stream = null
 volume_db = 0.0
@@ -540,8 +732,9 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="HackerHP" parent="Centerer" index="10" instance=ExtResource( 12 )]
+[node name="HackerHP" parent="Centerer" index="12" instance=ExtResource( 16 )]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 711.726, 14.8798 )
 _sections_unfolded = [ "Visibility" ]
@@ -554,9 +747,17 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="sound" type="AudioStreamPlayer" parent="." index="1"]
+[node name="sound" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Vega" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 17 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -568,7 +769,13 @@ bus = "Master"
 
 [connection signal="button_up" from="Centerer/Icono" to="Centerer/Icono" method="_on_Icono_button_up"]
 
+[connection signal="pressed" from="Centerer/Icono" to="." method="_on_Icono_pressed"]
+
 [connection signal="finished" from="Centerer/Icono/sound" to="Centerer/Icono" method="_on_sound_finished"]
+
+[connection signal="button_up" from="Centerer/WallpaperChange" to="Centerer/WallpaperChange" method="_on_WallpaperChange_button_up"]
+
+[connection signal="pressed" from="Centerer/CD" to="." method="_on_CD_pressed"]
 
 [connection signal="button_up" from="Centerer/HelpMission" to="." method="_on_HelpMission_button_up"]
 
@@ -581,5 +788,7 @@ bus = "Master"
 [connection signal="finished" from="Centerer/HackerHP/sound" to="Centerer/HackerHP" method="_on_sound_finished"]
 
 [connection signal="finished" from="sound" to="." method="_on_sound_finished"]
+
+[connection signal="finished" from="Vega" to="." method="_on_Vega_finished"]
 
 

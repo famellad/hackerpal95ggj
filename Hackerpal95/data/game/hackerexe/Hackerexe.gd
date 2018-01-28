@@ -21,6 +21,7 @@ var sbasa = preload("res://data/game/hackerexe/Basa.tscn")
 var masher = preload("res://data/game/hackerexe/desafios/masher/Masher.tscn")
 var lights_out = preload("res://data/game/hackerexe/desafios/lights_out/Light_Panel.tscn")
 var strings = preload("res://data/game/hackerexe/desafios/strings/Strings.tscn")
+var downloader = preload("res://data/game/victoria/Downloader.tscn")
 
 var menu_select = preload("res://data/SFX/Menu Select.wav")
 var win_sound = preload("res://data/SFX/Windows 95 Startup Remake.wav")
@@ -59,6 +60,7 @@ func _ready():
 	create_buttons(5, 5)
 	#tier_up()
 	unlock_tier0()
+	$Warnings.hide()
 	pass
 
 func create_buttons(rows, columns):
@@ -117,26 +119,48 @@ func unlock_tier0():
 func tier_up():
 	tier += 1
 	music.stop()
-
+	
+	var unlocks
+	
+	match last_diff:
+		"easy"   : unlocks = 1
+		"medium" : unlocks = 2
+		"hard"   : unlocks = 3
+	
+	
 	for i in range(0, 5):
 		get_node("but_tier" + str(tier - 1) + "_" + str(i)).activate()
-
-
-	#tier_beaten = 0
-
+	
 	var rand = randi() % 5
-
-	get_node("but_tier" + str(tier) + "_" + str(rand)).activate()
-
+	
+	var active = true
+	
+	for i in range(unlocks):
+		while true:
+			rand = randi() % 5
+			var node = get_node("but_tier" + str(tier) + "_" + str(rand))
+			active = node.active
+			if active:
+				continue
+			else:
+				node.activate()
+				break
+		
+	
 	new_title()
 
 func ultimate_victory():
-	# Mostrar la verdad
+	var d = downloader.instance()
+	d.global_transform[2] = Vector2(356, 276)
+	add_child(d)
 	desktop.hide_hhp()
 	sound.set_stream(win_sound)
 	music.stop()
 	tier = 6
 	sound.play(0)
+	
+	yield(get_tree().create_timer(10.0), "timeout")
+	desktop.win()
 
 func last_hacked():
 	# print("hola")
@@ -273,6 +297,11 @@ func _process(delta):
 			music.play(0)
 	elif tier == 6:
 		music.stop()
+		
+	if tier == 5:
+		$Warnings.show()
+	else:
+		$Warnings.hide()
 
 
 func _on_sound_finished():
